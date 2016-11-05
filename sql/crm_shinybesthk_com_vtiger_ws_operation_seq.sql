@@ -1,0 +1,1 @@
+INSERT INTO crm_shinybesthk_com.vtiger_ws_operation_seq (id) VALUES (33);

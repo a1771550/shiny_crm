@@ -1,0 +1,12 @@
+INSERT INTO crm_shinybesthk_com.vtiger_leadsource (leadsource, presence, picklist_valueid, sortorderid) VALUES ('Cold Call', 1, 99, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_leadsource (leadsource, presence, picklist_valueid, sortorderid) VALUES ('Existing Customer', 1, 100, 2);
+INSERT INTO crm_shinybesthk_com.vtiger_leadsource (leadsource, presence, picklist_valueid, sortorderid) VALUES ('Self Generated', 1, 101, 3);
+INSERT INTO crm_shinybesthk_com.vtiger_leadsource (leadsource, presence, picklist_valueid, sortorderid) VALUES ('Employee', 1, 102, 4);
+INSERT INTO crm_shinybesthk_com.vtiger_leadsource (leadsource, presence, picklist_valueid, sortorderid) VALUES ('Partner', 1, 103, 5);
+INSERT INTO crm_shinybesthk_com.vtiger_leadsource (leadsource, presence, picklist_valueid, sortorderid) VALUES ('Public Relations', 1, 104, 6);
+INSERT INTO crm_shinybesthk_com.vtiger_leadsource (leadsource, presence, picklist_valueid, sortorderid) VALUES ('Direct Mail', 1, 105, 7);
+INSERT INTO crm_shinybesthk_com.vtiger_leadsource (leadsource, presence, picklist_valueid, sortorderid) VALUES ('Conference', 1, 106, 8);
+INSERT INTO crm_shinybesthk_com.vtiger_leadsource (leadsource, presence, picklist_valueid, sortorderid) VALUES ('Trade Show', 1, 107, 9);
+INSERT INTO crm_shinybesthk_com.vtiger_leadsource (leadsource, presence, picklist_valueid, sortorderid) VALUES ('Web Site', 1, 108, 10);
+INSERT INTO crm_shinybesthk_com.vtiger_leadsource (leadsource, presence, picklist_valueid, sortorderid) VALUES ('Word of mouth', 1, 109, 11);
+INSERT INTO crm_shinybesthk_com.vtiger_leadsource (leadsource, presence, picklist_valueid, sortorderid) VALUES ('Other', 1, 110, 12);

@@ -1,0 +1,12 @@
+INSERT INTO crm_shinybesthk_com.vtiger_role (roleid, rolename, parentrole, depth, allowassignedrecordsto) VALUES ('H1', 'Organization', 'H1', 0, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_role (roleid, rolename, parentrole, depth, allowassignedrecordsto) VALUES ('H10', 'Sales Manager-Dick', 'H1::H2::H6::H10', 3, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_role (roleid, rolename, parentrole, depth, allowassignedrecordsto) VALUES ('H11', 'Sales Director- Henry', 'H1::H2::H6::H11', 3, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_role (roleid, rolename, parentrole, depth, allowassignedrecordsto) VALUES ('H12', 'Sales Manager-Raymond', 'H1::H2::H6::H11::H12', 4, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_role (roleid, rolename, parentrole, depth, allowassignedrecordsto) VALUES ('H13', 'Sales Manager-Jennifer', 'H1::H2::H3::H13', 3, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_role (roleid, rolename, parentrole, depth, allowassignedrecordsto) VALUES ('H2', 'CEO', 'H1::H2', 1, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_role (roleid, rolename, parentrole, depth, allowassignedrecordsto) VALUES ('H3', 'Vice President-L', 'H1::H2::H3', 2, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_role (roleid, rolename, parentrole, depth, allowassignedrecordsto) VALUES ('H4', 'Sales Manager-Chris', 'H1::H2::H3::H4', 3, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_role (roleid, rolename, parentrole, depth, allowassignedrecordsto) VALUES ('H6', 'Vice President-E', 'H1::H2::H6', 2, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_role (roleid, rolename, parentrole, depth, allowassignedrecordsto) VALUES ('H7', 'Sales Manager-Aska', 'H1::H2::H6::H7', 3, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_role (roleid, rolename, parentrole, depth, allowassignedrecordsto) VALUES ('H8', 'Sales Manager-Sampras', 'H1::H2::H3::H8', 3, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_role (roleid, rolename, parentrole, depth, allowassignedrecordsto) VALUES ('H9', 'Sales Director-Kevin', 'H1::H2::H3::H9', 3, 1);

@@ -1,0 +1,10 @@
+INSERT INTO crm_shinybesthk_com.vtiger_accounttype (accounttype, presence, picklist_valueid, sortorderid) VALUES ('Analyst', 1, 2, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_accounttype (accounttype, presence, picklist_valueid, sortorderid) VALUES ('Competitor', 1, 3, 2);
+INSERT INTO crm_shinybesthk_com.vtiger_accounttype (accounttype, presence, picklist_valueid, sortorderid) VALUES ('Customer', 1, 4, 3);
+INSERT INTO crm_shinybesthk_com.vtiger_accounttype (accounttype, presence, picklist_valueid, sortorderid) VALUES ('Integrator', 1, 5, 4);
+INSERT INTO crm_shinybesthk_com.vtiger_accounttype (accounttype, presence, picklist_valueid, sortorderid) VALUES ('Investor', 1, 6, 5);
+INSERT INTO crm_shinybesthk_com.vtiger_accounttype (accounttype, presence, picklist_valueid, sortorderid) VALUES ('Partner', 1, 7, 6);
+INSERT INTO crm_shinybesthk_com.vtiger_accounttype (accounttype, presence, picklist_valueid, sortorderid) VALUES ('Press', 1, 8, 7);
+INSERT INTO crm_shinybesthk_com.vtiger_accounttype (accounttype, presence, picklist_valueid, sortorderid) VALUES ('Prospect', 1, 9, 8);
+INSERT INTO crm_shinybesthk_com.vtiger_accounttype (accounttype, presence, picklist_valueid, sortorderid) VALUES ('Reseller', 1, 10, 9);
+INSERT INTO crm_shinybesthk_com.vtiger_accounttype (accounttype, presence, picklist_valueid, sortorderid) VALUES ('Other', 1, 11, 10);

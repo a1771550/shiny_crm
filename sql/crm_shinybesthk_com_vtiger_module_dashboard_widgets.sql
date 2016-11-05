@@ -1,0 +1,7 @@
+INSERT INTO crm_shinybesthk_com.vtiger_module_dashboard_widgets (linkid, userid, filterid, title, data, position) VALUES (37, 16, null, null, 'null', null);
+INSERT INTO crm_shinybesthk_com.vtiger_module_dashboard_widgets (linkid, userid, filterid, title, data, position) VALUES (58, 6, null, null, 'null', '{"row":"1","col":"1"}');
+INSERT INTO crm_shinybesthk_com.vtiger_module_dashboard_widgets (linkid, userid, filterid, title, data, position) VALUES (60, 6, null, null, 'null', '{"row":"1","col":"5"}');
+INSERT INTO crm_shinybesthk_com.vtiger_module_dashboard_widgets (linkid, userid, filterid, title, data, position) VALUES (104, 6, null, null, 'null', '{"row":"1","col":"11"}');
+INSERT INTO crm_shinybesthk_com.vtiger_module_dashboard_widgets (linkid, userid, filterid, title, data, position) VALUES (100, 6, null, null, 'null', '{"row":"2","col":"5"}');
+INSERT INTO crm_shinybesthk_com.vtiger_module_dashboard_widgets (linkid, userid, filterid, title, data, position) VALUES (61, 6, null, null, 'null', '{"row":"2","col":"5"}');
+INSERT INTO crm_shinybesthk_com.vtiger_module_dashboard_widgets (linkid, userid, filterid, title, data, position) VALUES (101, 6, 4, null, '{"module":"Accounts","fields":["accountname"]}', null);

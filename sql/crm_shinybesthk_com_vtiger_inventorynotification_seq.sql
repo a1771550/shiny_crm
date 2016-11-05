@@ -1,0 +1,1 @@
+INSERT INTO crm_shinybesthk_com.vtiger_inventorynotification_seq (id) VALUES (3);

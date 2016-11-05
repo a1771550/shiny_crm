@@ -1,0 +1,1 @@
+INSERT INTO crm_shinybesthk_com.vtiger_extnstore_users (username, password, instanceurl, createdon, deleted) VALUES ('1292237044@qq.com', 'e10adc3949ba59abbe56e057f20f883e', null, '2016-07-02 15:56:56', 0);

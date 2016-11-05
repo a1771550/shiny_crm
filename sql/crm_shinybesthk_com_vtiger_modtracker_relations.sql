@@ -1,0 +1,2 @@
+INSERT INTO crm_shinybesthk_com.vtiger_modtracker_relations (id, targetmodule, targetid, changedon) VALUES (20, 'Quotes', 14, '2016-07-29 02:51:11');
+INSERT INTO crm_shinybesthk_com.vtiger_modtracker_relations (id, targetmodule, targetid, changedon) VALUES (26, 'Quotes', 17, '2016-07-29 03:04:14');

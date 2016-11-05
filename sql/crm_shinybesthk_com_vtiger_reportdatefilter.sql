@@ -1,0 +1,2 @@
+INSERT INTO crm_shinybesthk_com.vtiger_reportdatefilter (datefilterid, datecolumnname, datefilter, startdate, enddate) VALUES (8, 'vtiger_crmentity:modifiedtime:modifiedtime:Calendar_Modified_Time', 'lastmonth', '2005-05-01', '2005-05-31');
+INSERT INTO crm_shinybesthk_com.vtiger_reportdatefilter (datefilterid, datecolumnname, datefilter, startdate, enddate) VALUES (9, 'vtiger_crmentity:modifiedtime:modifiedtime:Calendar_Modified_Time', 'thismonth', '2005-06-01', '2005-06-30');

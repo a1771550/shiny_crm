@@ -1,0 +1,1 @@
+INSERT INTO crm_shinybesthk_com.vtiger_callduration_seq (id) VALUES (5);

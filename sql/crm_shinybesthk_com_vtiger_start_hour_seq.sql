@@ -1,0 +1,1 @@
+INSERT INTO crm_shinybesthk_com.vtiger_start_hour_seq (id) VALUES (24);

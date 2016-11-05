@@ -1,0 +1,2 @@
+INSERT INTO crm_shinybesthk_com.vtiger_sobillads (sobilladdressid, bill_city, bill_code, bill_country, bill_state, bill_street, bill_pobox) VALUES (15, '', '', '', '', '38 Wang Lee Street, Yuen Long Industrial Estate, 
+Bright Future Pharmaceutical Centre, Yuen Long, N.T., Hong Kong', '');

@@ -1,0 +1,1 @@
+INSERT INTO crm_shinybesthk_com.vtiger_currency_symbol_placement_seq (id) VALUES (2);

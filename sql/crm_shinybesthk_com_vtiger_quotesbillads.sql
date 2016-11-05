@@ -1,0 +1,3 @@
+INSERT INTO crm_shinybesthk_com.vtiger_quotesbillads (quotebilladdressid, bill_city, bill_code, bill_country, bill_state, bill_street, bill_pobox) VALUES (14, '', '', '', '', '38 Wang Lee Street, Yuen Long Industrial Estate, 
+Bright Future Pharmaceutical Centre, Yuen Long, N.T., Hong Kong', '');
+INSERT INTO crm_shinybesthk_com.vtiger_quotesbillads (quotebilladdressid, bill_city, bill_code, bill_country, bill_state, bill_street, bill_pobox) VALUES (17, '', '', '', '', 'Level 2, The Long Beach Commercial Podium, 8 Hoi Fai Road, Kowloon, HK', '');

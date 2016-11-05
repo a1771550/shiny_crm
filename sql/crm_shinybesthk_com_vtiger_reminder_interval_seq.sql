@@ -1,0 +1,1 @@
+INSERT INTO crm_shinybesthk_com.vtiger_reminder_interval_seq (id) VALUES (8);

@@ -1,0 +1,2 @@
+INSERT INTO crm_shinybesthk_com.vtiger_crmentityrel (crmid, module, relcrmid, relmodule) VALUES (12, 'Potentials', 14, 'Quotes');
+INSERT INTO crm_shinybesthk_com.vtiger_crmentityrel (crmid, module, relcrmid, relmodule) VALUES (16, 'Potentials', 17, 'Quotes');

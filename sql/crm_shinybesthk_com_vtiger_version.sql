@@ -1,0 +1,1 @@
+INSERT INTO crm_shinybesthk_com.vtiger_version (old_version, current_version) VALUES ('6.4.0', '6.4.0');

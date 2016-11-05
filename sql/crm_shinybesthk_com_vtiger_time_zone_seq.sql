@@ -1,0 +1,1 @@
+INSERT INTO crm_shinybesthk_com.vtiger_time_zone_seq (id) VALUES (96);

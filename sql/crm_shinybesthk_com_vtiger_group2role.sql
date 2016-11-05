@@ -1,0 +1,9 @@
+INSERT INTO crm_shinybesthk_com.vtiger_group2role (groupid, roleid) VALUES (2, 'H4');
+INSERT INTO crm_shinybesthk_com.vtiger_group2role (groupid, roleid) VALUES (3, 'H2');
+INSERT INTO crm_shinybesthk_com.vtiger_group2role (groupid, roleid) VALUES (4, 'H3');
+INSERT INTO crm_shinybesthk_com.vtiger_group2role (groupid, roleid) VALUES (10, 'H3');
+INSERT INTO crm_shinybesthk_com.vtiger_group2role (groupid, roleid) VALUES (10, 'H4');
+INSERT INTO crm_shinybesthk_com.vtiger_group2role (groupid, roleid) VALUES (14, 'H10');
+INSERT INTO crm_shinybesthk_com.vtiger_group2role (groupid, roleid) VALUES (14, 'H11');
+INSERT INTO crm_shinybesthk_com.vtiger_group2role (groupid, roleid) VALUES (14, 'H6');
+INSERT INTO crm_shinybesthk_com.vtiger_group2role (groupid, roleid) VALUES (14, 'H7');

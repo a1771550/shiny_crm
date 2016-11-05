@@ -1,0 +1,2 @@
+INSERT INTO crm_shinybesthk_com.vtiger_assetstatus (assetstatus, presence, picklist_valueid, sortorderid) VALUES ('In Service', 1, 286, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_assetstatus (assetstatus, presence, picklist_valueid, sortorderid) VALUES ('Out-of-service', 1, 287, 2);

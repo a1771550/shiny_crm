@@ -1,0 +1,3 @@
+INSERT INTO crm_shinybesthk_com.vtiger_projectmilestonetype (projectmilestonetype, presence, picklist_valueid, sortorderid) VALUES ('administrative', 1, 236, 2);
+INSERT INTO crm_shinybesthk_com.vtiger_projectmilestonetype (projectmilestonetype, presence, picklist_valueid, sortorderid) VALUES ('operative', 1, 237, 3);
+INSERT INTO crm_shinybesthk_com.vtiger_projectmilestonetype (projectmilestonetype, presence, picklist_valueid, sortorderid) VALUES ('other', 1, 238, 4);

@@ -1,0 +1,4 @@
+INSERT INTO crm_shinybesthk_com.vtiger_reportsortcol (sortcolid, reportid, columnname, sortorder) VALUES (1, 4, 'vtiger_leaddetails:leadsource:Leads_Lead_Source:leadsource:V', 'Ascending');
+INSERT INTO crm_shinybesthk_com.vtiger_reportsortcol (sortcolid, reportid, columnname, sortorder) VALUES (1, 5, 'vtiger_leaddetails:leadstatus:Leads_Lead_Status:leadstatus:V', 'Ascending');
+INSERT INTO crm_shinybesthk_com.vtiger_reportsortcol (sortcolid, reportid, columnname, sortorder) VALUES (1, 6, 'vtiger_potential:sales_stage:Potentials_Sales_Stage:sales_stage:V', 'Ascending');
+INSERT INTO crm_shinybesthk_com.vtiger_reportsortcol (sortcolid, reportid, columnname, sortorder) VALUES (1, 11, 'vtiger_troubletickets:priority:HelpDesk_Priority:ticketpriorities:V', 'Ascending');

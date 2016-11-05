@@ -1,0 +1,17 @@
+INSERT INTO crm_shinybesthk_com.vtiger_language (name, prefix, label, lastupdated, sequence, isdefault, active) VALUES ('English', 'en_us', 'US English', '2016-07-02 16:45:00', null, 1, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_language (name, prefix, label, lastupdated, sequence, isdefault, active) VALUES ('Swedish', 'sv_se', 'Swedish', '2016-07-02 16:45:46', null, 0, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_language (name, prefix, label, lastupdated, sequence, isdefault, active) VALUES ('Pack de langue français', 'fr_fr', 'Pack de langue français', '2016-07-02 16:45:39', null, 0, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_language (name, prefix, label, lastupdated, sequence, isdefault, active) VALUES ('Język Polski', 'pl_pl', 'Język Polski', '2016-07-02 16:45:39', null, 0, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_language (name, prefix, label, lastupdated, sequence, isdefault, active) VALUES ('Deutsch', 'de_de', 'DE Deutsch', '2016-07-02 16:45:30', null, 0, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_language (name, prefix, label, lastupdated, sequence, isdefault, active) VALUES ('British English', 'en_gb', 'British English', '2016-07-02 16:45:30', null, 0, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_language (name, prefix, label, lastupdated, sequence, isdefault, active) VALUES ('Dutch', 'nl_nl', 'NL-Dutch', '2016-07-02 16:45:30', null, 0, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_language (name, prefix, label, lastupdated, sequence, isdefault, active) VALUES ('Russian', 'ru_ru', 'Russian', '2016-07-02 16:45:30', null, 0, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_language (name, prefix, label, lastupdated, sequence, isdefault, active) VALUES ('Brazilian', 'pt_br', 'PT Brasil', '2016-07-02 16:45:39', null, 0, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_language (name, prefix, label, lastupdated, sequence, isdefault, active) VALUES ('Italian', 'it_it', 'IT Italian', '2016-07-02 16:45:31', null, 0, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_language (name, prefix, label, lastupdated, sequence, isdefault, active) VALUES ('Spanish', 'es_es', 'ES Spanish', '2016-07-02 16:45:32', null, 0, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_language (name, prefix, label, lastupdated, sequence, isdefault, active) VALUES ('Turkce', 'tr_tr', 'Turkce Dil Paketi', '2016-07-02 16:45:32', null, 0, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_language (name, prefix, label, lastupdated, sequence, isdefault, active) VALUES ('Romana', 'ro_ro', 'Romana', '2016-07-02 16:45:39', null, 0, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_language (name, prefix, label, lastupdated, sequence, isdefault, active) VALUES ('Mexican Spanish', 'es_mx', 'ES Mexico', '2016-07-02 16:45:32', null, 0, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_language (name, prefix, label, lastupdated, sequence, isdefault, active) VALUES ('Arabic', 'ar_ae', 'Arabic', '2016-07-02 16:45:46', null, 0, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_language (name, prefix, label, lastupdated, sequence, isdefault, active) VALUES ('Hungarian', 'hu_hu', 'HU Magyar', '2016-07-02 16:45:33', null, 0, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_language (name, prefix, label, lastupdated, sequence, isdefault, active) VALUES ('Traditional Chinese', 'zh_tw', '台灣繁體', '2016-07-02 15:57:16', null, 0, 1);

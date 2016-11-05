@@ -1,0 +1,3 @@
+INSERT INTO crm_shinybesthk_com.vtiger_cvstdfilter (cvid, columnname, stdfilter, startdate, enddate) VALUES (3, 'vtiger_crmentity:modifiedtime:modifiedtime:Leads_Modified_Time', 'thismonth', '2005-06-01', '2005-06-30');
+INSERT INTO crm_shinybesthk_com.vtiger_cvstdfilter (cvid, columnname, stdfilter, startdate, enddate) VALUES (6, 'vtiger_crmentity:createdtime:createdtime:Accounts_Created_Time', 'thisweek', '2005-06-19', '2005-06-25');
+INSERT INTO crm_shinybesthk_com.vtiger_cvstdfilter (cvid, columnname, stdfilter, startdate, enddate) VALUES (9, 'vtiger_contactsubdetails:birthday:birthday:Contacts_Birthdate', 'today', '2005-06-25', '2005-06-25');

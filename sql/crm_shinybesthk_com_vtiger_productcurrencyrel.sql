@@ -1,0 +1,12 @@
+INSERT INTO crm_shinybesthk_com.vtiger_productcurrencyrel (productid, currencyid, converted_price, actual_price) VALUES (5, 2, 1900.00000000, 1900.00000000);
+INSERT INTO crm_shinybesthk_com.vtiger_productcurrencyrel (productid, currencyid, converted_price, actual_price) VALUES (4, 2, 500.00000000, 500.00000000);
+INSERT INTO crm_shinybesthk_com.vtiger_productcurrencyrel (productid, currencyid, converted_price, actual_price) VALUES (13, 2, 28000.00000000, 28000.00000000);
+INSERT INTO crm_shinybesthk_com.vtiger_productcurrencyrel (productid, currencyid, converted_price, actual_price) VALUES (21, 2, 1900.00000000, 1900.00000000);
+INSERT INTO crm_shinybesthk_com.vtiger_productcurrencyrel (productid, currencyid, converted_price, actual_price) VALUES (9, 2, 1.00000000, 1.00000000);
+INSERT INTO crm_shinybesthk_com.vtiger_productcurrencyrel (productid, currencyid, converted_price, actual_price) VALUES (29, 2, 395000.00000000, 395000.00000000);
+INSERT INTO crm_shinybesthk_com.vtiger_productcurrencyrel (productid, currencyid, converted_price, actual_price) VALUES (32, 2, 45620.00000000, 45620.00000000);
+INSERT INTO crm_shinybesthk_com.vtiger_productcurrencyrel (productid, currencyid, converted_price, actual_price) VALUES (31, 2, 162300.00000000, 162300.00000000);
+INSERT INTO crm_shinybesthk_com.vtiger_productcurrencyrel (productid, currencyid, converted_price, actual_price) VALUES (42, 2, 0.00000000, 0.00000000);
+INSERT INTO crm_shinybesthk_com.vtiger_productcurrencyrel (productid, currencyid, converted_price, actual_price) VALUES (110, 1, 400.00000000, 0.00000000);
+INSERT INTO crm_shinybesthk_com.vtiger_productcurrencyrel (productid, currencyid, converted_price, actual_price) VALUES (110, 2, 344.00000000, 400.00000000);
+INSERT INTO crm_shinybesthk_com.vtiger_productcurrencyrel (productid, currencyid, converted_price, actual_price) VALUES (23, 2, 1900.00000000, 1900.00000000);

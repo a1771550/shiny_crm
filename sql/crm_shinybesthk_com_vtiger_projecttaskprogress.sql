@@ -1,0 +1,10 @@
+INSERT INTO crm_shinybesthk_com.vtiger_projecttaskprogress (projecttaskprogress, presence, picklist_valueid, sortorderid) VALUES ('10%', 1, 248, 2);
+INSERT INTO crm_shinybesthk_com.vtiger_projecttaskprogress (projecttaskprogress, presence, picklist_valueid, sortorderid) VALUES ('20%', 1, 249, 3);
+INSERT INTO crm_shinybesthk_com.vtiger_projecttaskprogress (projecttaskprogress, presence, picklist_valueid, sortorderid) VALUES ('30%', 1, 250, 4);
+INSERT INTO crm_shinybesthk_com.vtiger_projecttaskprogress (projecttaskprogress, presence, picklist_valueid, sortorderid) VALUES ('40%', 1, 251, 5);
+INSERT INTO crm_shinybesthk_com.vtiger_projecttaskprogress (projecttaskprogress, presence, picklist_valueid, sortorderid) VALUES ('50%', 1, 252, 6);
+INSERT INTO crm_shinybesthk_com.vtiger_projecttaskprogress (projecttaskprogress, presence, picklist_valueid, sortorderid) VALUES ('60%', 1, 253, 7);
+INSERT INTO crm_shinybesthk_com.vtiger_projecttaskprogress (projecttaskprogress, presence, picklist_valueid, sortorderid) VALUES ('70%', 1, 254, 8);
+INSERT INTO crm_shinybesthk_com.vtiger_projecttaskprogress (projecttaskprogress, presence, picklist_valueid, sortorderid) VALUES ('80%', 1, 255, 9);
+INSERT INTO crm_shinybesthk_com.vtiger_projecttaskprogress (projecttaskprogress, presence, picklist_valueid, sortorderid) VALUES ('90%', 1, 256, 10);
+INSERT INTO crm_shinybesthk_com.vtiger_projecttaskprogress (projecttaskprogress, presence, picklist_valueid, sortorderid) VALUES ('100%', 1, 257, 11);

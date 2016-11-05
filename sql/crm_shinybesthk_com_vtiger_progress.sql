@@ -1,0 +1,10 @@
+INSERT INTO crm_shinybesthk_com.vtiger_progress (progress, presence, picklist_valueid, sortorderid) VALUES ('10%', 1, 276, 2);
+INSERT INTO crm_shinybesthk_com.vtiger_progress (progress, presence, picklist_valueid, sortorderid) VALUES ('20%', 1, 277, 3);
+INSERT INTO crm_shinybesthk_com.vtiger_progress (progress, presence, picklist_valueid, sortorderid) VALUES ('30%', 1, 278, 4);
+INSERT INTO crm_shinybesthk_com.vtiger_progress (progress, presence, picklist_valueid, sortorderid) VALUES ('40%', 1, 279, 5);
+INSERT INTO crm_shinybesthk_com.vtiger_progress (progress, presence, picklist_valueid, sortorderid) VALUES ('50%', 1, 280, 6);
+INSERT INTO crm_shinybesthk_com.vtiger_progress (progress, presence, picklist_valueid, sortorderid) VALUES ('60%', 1, 281, 7);
+INSERT INTO crm_shinybesthk_com.vtiger_progress (progress, presence, picklist_valueid, sortorderid) VALUES ('70%', 1, 282, 8);
+INSERT INTO crm_shinybesthk_com.vtiger_progress (progress, presence, picklist_valueid, sortorderid) VALUES ('80%', 1, 283, 9);
+INSERT INTO crm_shinybesthk_com.vtiger_progress (progress, presence, picklist_valueid, sortorderid) VALUES ('90%', 1, 284, 10);
+INSERT INTO crm_shinybesthk_com.vtiger_progress (progress, presence, picklist_valueid, sortorderid) VALUES ('100%', 1, 285, 11);

@@ -1,0 +1,3 @@
+INSERT INTO crm_shinybesthk_com.vtiger_projectpriority (projectpriority, presence, picklist_valueid, sortorderid) VALUES ('low', 1, 272, 2);
+INSERT INTO crm_shinybesthk_com.vtiger_projectpriority (projectpriority, presence, picklist_valueid, sortorderid) VALUES ('normal', 1, 273, 3);
+INSERT INTO crm_shinybesthk_com.vtiger_projectpriority (projectpriority, presence, picklist_valueid, sortorderid) VALUES ('high', 1, 274, 4);

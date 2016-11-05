@@ -1,0 +1,18 @@
+INSERT INTO crm_shinybesthk_com.vtiger_cvadvfilter_grouping (groupid, cvid, group_condition, condition_expression) VALUES (1, 2, '', '');
+INSERT INTO crm_shinybesthk_com.vtiger_cvadvfilter_grouping (groupid, cvid, group_condition, condition_expression) VALUES (1, 5, '', '');
+INSERT INTO crm_shinybesthk_com.vtiger_cvadvfilter_grouping (groupid, cvid, group_condition, condition_expression) VALUES (1, 11, '', '');
+INSERT INTO crm_shinybesthk_com.vtiger_cvadvfilter_grouping (groupid, cvid, group_condition, condition_expression) VALUES (1, 12, '', '');
+INSERT INTO crm_shinybesthk_com.vtiger_cvadvfilter_grouping (groupid, cvid, group_condition, condition_expression) VALUES (1, 14, '', '');
+INSERT INTO crm_shinybesthk_com.vtiger_cvadvfilter_grouping (groupid, cvid, group_condition, condition_expression) VALUES (1, 15, '', '');
+INSERT INTO crm_shinybesthk_com.vtiger_cvadvfilter_grouping (groupid, cvid, group_condition, condition_expression) VALUES (1, 17, '', '');
+INSERT INTO crm_shinybesthk_com.vtiger_cvadvfilter_grouping (groupid, cvid, group_condition, condition_expression) VALUES (1, 18, '', '');
+INSERT INTO crm_shinybesthk_com.vtiger_cvadvfilter_grouping (groupid, cvid, group_condition, condition_expression) VALUES (1, 31, '', '');
+INSERT INTO crm_shinybesthk_com.vtiger_cvadvfilter_grouping (groupid, cvid, group_condition, condition_expression) VALUES (1, 32, '', '');
+INSERT INTO crm_shinybesthk_com.vtiger_cvadvfilter_grouping (groupid, cvid, group_condition, condition_expression) VALUES (1, 33, '', '');
+INSERT INTO crm_shinybesthk_com.vtiger_cvadvfilter_grouping (groupid, cvid, group_condition, condition_expression) VALUES (1, 34, '', '');
+INSERT INTO crm_shinybesthk_com.vtiger_cvadvfilter_grouping (groupid, cvid, group_condition, condition_expression) VALUES (1, 35, '', '');
+INSERT INTO crm_shinybesthk_com.vtiger_cvadvfilter_grouping (groupid, cvid, group_condition, condition_expression) VALUES (1, 36, '', '');
+INSERT INTO crm_shinybesthk_com.vtiger_cvadvfilter_grouping (groupid, cvid, group_condition, condition_expression) VALUES (1, 37, '', '');
+INSERT INTO crm_shinybesthk_com.vtiger_cvadvfilter_grouping (groupid, cvid, group_condition, condition_expression) VALUES (1, 51, 'and', ' 0 ');
+INSERT INTO crm_shinybesthk_com.vtiger_cvadvfilter_grouping (groupid, cvid, group_condition, condition_expression) VALUES (1, 53, 'and', ' 0 ');
+INSERT INTO crm_shinybesthk_com.vtiger_cvadvfilter_grouping (groupid, cvid, group_condition, condition_expression) VALUES (2, 51, null, ' 1 ');

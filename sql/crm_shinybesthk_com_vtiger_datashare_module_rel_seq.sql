@@ -1,0 +1,1 @@
+INSERT INTO crm_shinybesthk_com.vtiger_datashare_module_rel_seq (id) VALUES (24);

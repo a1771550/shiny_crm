@@ -1,0 +1,3 @@
+INSERT INTO crm_shinybesthk_com.vtiger_productcategory (productcategory, presence, picklist_valueid, sortorderid) VALUES ('Hardware', 1, 136, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_productcategory (productcategory, presence, picklist_valueid, sortorderid) VALUES ('Software', 1, 137, 2);
+INSERT INTO crm_shinybesthk_com.vtiger_productcategory (productcategory, presence, picklist_valueid, sortorderid) VALUES ('CRM Applications', 1, 138, 3);

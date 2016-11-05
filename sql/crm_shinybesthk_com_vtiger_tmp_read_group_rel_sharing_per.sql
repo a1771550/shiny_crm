@@ -1,0 +1,10 @@
+INSERT INTO crm_shinybesthk_com.vtiger_tmp_read_group_rel_sharing_per (userid, tabid, relatedtabid, sharedgroupid) VALUES (8, 20, 22, 10);
+INSERT INTO crm_shinybesthk_com.vtiger_tmp_read_group_rel_sharing_per (userid, tabid, relatedtabid, sharedgroupid) VALUES (8, 22, 23, 10);
+INSERT INTO crm_shinybesthk_com.vtiger_tmp_read_group_rel_sharing_per (userid, tabid, relatedtabid, sharedgroupid) VALUES (9, 20, 22, 10);
+INSERT INTO crm_shinybesthk_com.vtiger_tmp_read_group_rel_sharing_per (userid, tabid, relatedtabid, sharedgroupid) VALUES (9, 22, 23, 10);
+INSERT INTO crm_shinybesthk_com.vtiger_tmp_read_group_rel_sharing_per (userid, tabid, relatedtabid, sharedgroupid) VALUES (11, 20, 22, 14);
+INSERT INTO crm_shinybesthk_com.vtiger_tmp_read_group_rel_sharing_per (userid, tabid, relatedtabid, sharedgroupid) VALUES (11, 22, 23, 14);
+INSERT INTO crm_shinybesthk_com.vtiger_tmp_read_group_rel_sharing_per (userid, tabid, relatedtabid, sharedgroupid) VALUES (12, 20, 22, 14);
+INSERT INTO crm_shinybesthk_com.vtiger_tmp_read_group_rel_sharing_per (userid, tabid, relatedtabid, sharedgroupid) VALUES (12, 22, 23, 14);
+INSERT INTO crm_shinybesthk_com.vtiger_tmp_read_group_rel_sharing_per (userid, tabid, relatedtabid, sharedgroupid) VALUES (13, 20, 22, 14);
+INSERT INTO crm_shinybesthk_com.vtiger_tmp_read_group_rel_sharing_per (userid, tabid, relatedtabid, sharedgroupid) VALUES (13, 22, 23, 14);

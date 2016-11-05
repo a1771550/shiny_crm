@@ -1,0 +1,2 @@
+INSERT INTO crm_shinybesthk_com.vtiger_currency_symbol_placement (currency_symbol_placement, sortorderid, presence) VALUES ('$1.0', 0, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_currency_symbol_placement (currency_symbol_placement, sortorderid, presence) VALUES ('1.0$', 1, 1);

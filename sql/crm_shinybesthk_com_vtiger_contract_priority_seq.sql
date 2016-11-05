@@ -1,0 +1,1 @@
+INSERT INTO crm_shinybesthk_com.vtiger_contract_priority_seq (id) VALUES (3);

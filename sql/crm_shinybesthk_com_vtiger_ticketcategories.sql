@@ -1,0 +1,3 @@
+INSERT INTO crm_shinybesthk_com.vtiger_ticketcategories (ticketcategories, presence, picklist_valueid, sortorderid) VALUES ('Big Problem', 1, 179, 0);
+INSERT INTO crm_shinybesthk_com.vtiger_ticketcategories (ticketcategories, presence, picklist_valueid, sortorderid) VALUES ('Small Problem', 1, 180, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_ticketcategories (ticketcategories, presence, picklist_valueid, sortorderid) VALUES ('Other Problem', 1, 181, 2);

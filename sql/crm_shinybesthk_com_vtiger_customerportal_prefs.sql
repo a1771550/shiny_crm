@@ -1,0 +1,15 @@
+INSERT INTO crm_shinybesthk_com.vtiger_customerportal_prefs (tabid, prefkey, prefvalue) VALUES (0, 'defaultassignee', 1);
+INSERT INTO crm_shinybesthk_com.vtiger_customerportal_prefs (tabid, prefkey, prefvalue) VALUES (0, 'userid', 1);
+INSERT INTO crm_shinybesthk_com.vtiger_customerportal_prefs (tabid, prefkey, prefvalue) VALUES (4, 'showrelatedinfo', 1);
+INSERT INTO crm_shinybesthk_com.vtiger_customerportal_prefs (tabid, prefkey, prefvalue) VALUES (6, 'showrelatedinfo', 1);
+INSERT INTO crm_shinybesthk_com.vtiger_customerportal_prefs (tabid, prefkey, prefvalue) VALUES (8, 'showrelatedinfo', 1);
+INSERT INTO crm_shinybesthk_com.vtiger_customerportal_prefs (tabid, prefkey, prefvalue) VALUES (13, 'showrelatedinfo', 1);
+INSERT INTO crm_shinybesthk_com.vtiger_customerportal_prefs (tabid, prefkey, prefvalue) VALUES (14, 'showrelatedinfo', 1);
+INSERT INTO crm_shinybesthk_com.vtiger_customerportal_prefs (tabid, prefkey, prefvalue) VALUES (15, 'showrelatedinfo', 1);
+INSERT INTO crm_shinybesthk_com.vtiger_customerportal_prefs (tabid, prefkey, prefvalue) VALUES (20, 'showrelatedinfo', 1);
+INSERT INTO crm_shinybesthk_com.vtiger_customerportal_prefs (tabid, prefkey, prefvalue) VALUES (23, 'showrelatedinfo', 1);
+INSERT INTO crm_shinybesthk_com.vtiger_customerportal_prefs (tabid, prefkey, prefvalue) VALUES (30, 'showrelatedinfo', 1);
+INSERT INTO crm_shinybesthk_com.vtiger_customerportal_prefs (tabid, prefkey, prefvalue) VALUES (44, 'showrelatedinfo', 1);
+INSERT INTO crm_shinybesthk_com.vtiger_customerportal_prefs (tabid, prefkey, prefvalue) VALUES (45, 'showrelatedinfo', 1);
+INSERT INTO crm_shinybesthk_com.vtiger_customerportal_prefs (tabid, prefkey, prefvalue) VALUES (46, 'showrelatedinfo', 1);
+INSERT INTO crm_shinybesthk_com.vtiger_customerportal_prefs (tabid, prefkey, prefvalue) VALUES (47, 'showrelatedinfo', 1);

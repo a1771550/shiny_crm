@@ -1,0 +1,1 @@
+INSERT INTO crm_shinybesthk_com.vtiger_campaigntype_seq (id) VALUES (13);

@@ -1,0 +1,2 @@
+INSERT INTO crm_shinybesthk_com.vtiger_taxclass (taxclass, sortorderid, presence) VALUES ('SalesTax', 0, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_taxclass (taxclass, sortorderid, presence) VALUES ('Vat', 1, 1);

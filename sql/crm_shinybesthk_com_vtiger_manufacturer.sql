@@ -1,0 +1,3 @@
+INSERT INTO crm_shinybesthk_com.vtiger_manufacturer (manufacturer, presence, picklist_valueid, sortorderid) VALUES ('AltvetPet Inc.', 1, 124, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_manufacturer (manufacturer, presence, picklist_valueid, sortorderid) VALUES ('LexPon Inc.', 1, 125, 2);
+INSERT INTO crm_shinybesthk_com.vtiger_manufacturer (manufacturer, presence, picklist_valueid, sortorderid) VALUES ('MetBeat Corp', 1, 126, 3);

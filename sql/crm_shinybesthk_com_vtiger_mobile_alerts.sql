@@ -1,0 +1,7 @@
+INSERT INTO crm_shinybesthk_com.vtiger_mobile_alerts (handler_path, handler_class, sequence, deleted) VALUES ('modules/Mobile/api/ws/models/alerts/IdleTicketsOfMine.php', 'Mobile_WS_AlertModel_IdleTicketsOfMine', null, 0);
+INSERT INTO crm_shinybesthk_com.vtiger_mobile_alerts (handler_path, handler_class, sequence, deleted) VALUES ('modules/Mobile/api/ws/models/alerts/NewTicketOfMine.php', 'Mobile_WS_AlertModel_NewTicketOfMine', null, 0);
+INSERT INTO crm_shinybesthk_com.vtiger_mobile_alerts (handler_path, handler_class, sequence, deleted) VALUES ('modules/Mobile/api/ws/models/alerts/PendingTicketsOfMine.php', 'Mobile_WS_AlertModel_PendingTicketsOfMine', null, 0);
+INSERT INTO crm_shinybesthk_com.vtiger_mobile_alerts (handler_path, handler_class, sequence, deleted) VALUES ('modules/Mobile/api/ws/models/alerts/PotentialsDueIn5Days.php', 'Mobile_WS_AlertModel_PotentialsDueIn5Days', null, 0);
+INSERT INTO crm_shinybesthk_com.vtiger_mobile_alerts (handler_path, handler_class, sequence, deleted) VALUES ('modules/Mobile/api/ws/models/alerts/EventsOfMineToday.php', 'Mobile_WS_AlertModel_EventsOfMineToday', null, 0);
+INSERT INTO crm_shinybesthk_com.vtiger_mobile_alerts (handler_path, handler_class, sequence, deleted) VALUES ('modules/Mobile/api/ws/models/alerts/ProjectTasksOfMine.php', 'Mobile_WS_AlertModel_ProjectTasksOfMine', null, 0);
+INSERT INTO crm_shinybesthk_com.vtiger_mobile_alerts (handler_path, handler_class, sequence, deleted) VALUES ('modules/Mobile/api/ws/models/alerts/Projects.php', 'Mobile_WS_AlertModel_Projects', null, 0);

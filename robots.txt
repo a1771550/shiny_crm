@@ -1,0 +1,9 @@
+# ------------------------------------------
+# smartsymbol CRM . -- http://www.smartsymbolglobal.com
+# Robot Exclusion File -- robots.txt
+# Author:  smartsymbol CRM
+# Last Updated:  17/11/06 
+# ------------------------------------------
+
+User-agent: *
+Disallow: /

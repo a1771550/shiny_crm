@@ -1,0 +1,12 @@
+INSERT INTO crm_shinybesthk_com.vtiger_crmsetup (userid, setup_status) VALUES (1, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_crmsetup (userid, setup_status) VALUES (5, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_crmsetup (userid, setup_status) VALUES (6, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_crmsetup (userid, setup_status) VALUES (7, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_crmsetup (userid, setup_status) VALUES (13, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_crmsetup (userid, setup_status) VALUES (8, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_crmsetup (userid, setup_status) VALUES (15, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_crmsetup (userid, setup_status) VALUES (16, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_crmsetup (userid, setup_status) VALUES (9, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_crmsetup (userid, setup_status) VALUES (18, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_crmsetup (userid, setup_status) VALUES (19, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_crmsetup (userid, setup_status) VALUES (20, 1);

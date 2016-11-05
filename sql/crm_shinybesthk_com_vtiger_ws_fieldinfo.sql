@@ -1,0 +1,1 @@
+INSERT INTO crm_shinybesthk_com.vtiger_ws_fieldinfo (id, property_name, property_value) VALUES ('vtiger_organizationdetails.organization_id', 'upload.path', '1');

@@ -1,0 +1,1 @@
+INSERT INTO crm_shinybesthk_com.vtiger_leadsubdetails (leadsubscriptionid, website, callornot, readornot, empct) VALUES (85, '', 0, 0, 0);

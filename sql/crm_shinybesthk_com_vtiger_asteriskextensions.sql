@@ -1,0 +1,14 @@
+INSERT INTO crm_shinybesthk_com.vtiger_asteriskextensions (userid, asterisk_extension, use_asterisk) VALUES (1, null, null);
+INSERT INTO crm_shinybesthk_com.vtiger_asteriskextensions (userid, asterisk_extension, use_asterisk) VALUES (5, null, null);
+INSERT INTO crm_shinybesthk_com.vtiger_asteriskextensions (userid, asterisk_extension, use_asterisk) VALUES (6, null, null);
+INSERT INTO crm_shinybesthk_com.vtiger_asteriskextensions (userid, asterisk_extension, use_asterisk) VALUES (7, null, null);
+INSERT INTO crm_shinybesthk_com.vtiger_asteriskextensions (userid, asterisk_extension, use_asterisk) VALUES (8, null, null);
+INSERT INTO crm_shinybesthk_com.vtiger_asteriskextensions (userid, asterisk_extension, use_asterisk) VALUES (9, null, null);
+INSERT INTO crm_shinybesthk_com.vtiger_asteriskextensions (userid, asterisk_extension, use_asterisk) VALUES (11, null, null);
+INSERT INTO crm_shinybesthk_com.vtiger_asteriskextensions (userid, asterisk_extension, use_asterisk) VALUES (12, null, null);
+INSERT INTO crm_shinybesthk_com.vtiger_asteriskextensions (userid, asterisk_extension, use_asterisk) VALUES (13, null, null);
+INSERT INTO crm_shinybesthk_com.vtiger_asteriskextensions (userid, asterisk_extension, use_asterisk) VALUES (15, null, null);
+INSERT INTO crm_shinybesthk_com.vtiger_asteriskextensions (userid, asterisk_extension, use_asterisk) VALUES (16, null, null);
+INSERT INTO crm_shinybesthk_com.vtiger_asteriskextensions (userid, asterisk_extension, use_asterisk) VALUES (17, null, null);
+INSERT INTO crm_shinybesthk_com.vtiger_asteriskextensions (userid, asterisk_extension, use_asterisk) VALUES (18, null, null);
+INSERT INTO crm_shinybesthk_com.vtiger_asteriskextensions (userid, asterisk_extension, use_asterisk) VALUES (19, null, null);

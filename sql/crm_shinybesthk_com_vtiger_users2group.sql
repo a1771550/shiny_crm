@@ -1,0 +1,1 @@
+INSERT INTO crm_shinybesthk_com.vtiger_users2group (groupid, userid) VALUES (3, 1);

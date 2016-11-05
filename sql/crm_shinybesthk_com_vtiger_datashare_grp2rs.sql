@@ -1,0 +1,1 @@
+INSERT INTO crm_shinybesthk_com.vtiger_datashare_grp2rs (shareid, share_groupid, to_roleandsubid, permission) VALUES (24, 2, 'H2', 0);

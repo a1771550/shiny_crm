@@ -1,0 +1,3 @@
+INSERT INTO crm_shinybesthk_com.vtiger_campaignrelstatus (campaignrelstatusid, campaignrelstatus, sortorderid, presence) VALUES (2, 'Contacted - Successful', 1, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_campaignrelstatus (campaignrelstatusid, campaignrelstatus, sortorderid, presence) VALUES (3, 'Contacted - Unsuccessful', 2, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_campaignrelstatus (campaignrelstatusid, campaignrelstatus, sortorderid, presence) VALUES (4, 'Contacted - Never Contact Again', 3, 1);

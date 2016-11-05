@@ -1,0 +1,1 @@
+INSERT INTO crm_shinybesthk_com.vtiger_faqcategories (faqcategories, presence, picklist_valueid, sortorderid) VALUES ('General', 1, 46, 0);

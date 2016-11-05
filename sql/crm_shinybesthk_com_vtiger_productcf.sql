@@ -1,0 +1,10 @@
+INSERT INTO crm_shinybesthk_com.vtiger_productcf (productid) VALUES (4);
+INSERT INTO crm_shinybesthk_com.vtiger_productcf (productid) VALUES (9);
+INSERT INTO crm_shinybesthk_com.vtiger_productcf (productid) VALUES (13);
+INSERT INTO crm_shinybesthk_com.vtiger_productcf (productid) VALUES (21);
+INSERT INTO crm_shinybesthk_com.vtiger_productcf (productid) VALUES (23);
+INSERT INTO crm_shinybesthk_com.vtiger_productcf (productid) VALUES (29);
+INSERT INTO crm_shinybesthk_com.vtiger_productcf (productid) VALUES (31);
+INSERT INTO crm_shinybesthk_com.vtiger_productcf (productid) VALUES (32);
+INSERT INTO crm_shinybesthk_com.vtiger_productcf (productid) VALUES (42);
+INSERT INTO crm_shinybesthk_com.vtiger_productcf (productid) VALUES (110);

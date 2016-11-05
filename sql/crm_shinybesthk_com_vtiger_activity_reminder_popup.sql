@@ -1,0 +1,5 @@
+INSERT INTO crm_shinybesthk_com.vtiger_activity_reminder_popup (semodule, recordid, date_start, time_start, status) VALUES ('Calendar', 2, '2016-07-02', '16:00:00', 0);
+INSERT INTO crm_shinybesthk_com.vtiger_activity_reminder_popup (semodule, recordid, date_start, time_start, status) VALUES ('Calendar', 3, '2016-07-07', '13:00:00', 1);
+INSERT INTO crm_shinybesthk_com.vtiger_activity_reminder_popup (semodule, recordid, date_start, time_start, status) VALUES ('Events', 71, '2016-08-11', '07:00:00', 0);
+INSERT INTO crm_shinybesthk_com.vtiger_activity_reminder_popup (semodule, recordid, date_start, time_start, status) VALUES ('Calendar', 172, '2016-10-12', '02:00:00', 0);
+INSERT INTO crm_shinybesthk_com.vtiger_activity_reminder_popup (semodule, recordid, date_start, time_start, status) VALUES ('Calendar', 173, '2016-10-14', '01:30:00', 0);

@@ -1,0 +1,10 @@
+INSERT INTO crm_shinybesthk_com.vtiger_sales_stage (sales_stage, presence, picklist_valueid, sortorderid) VALUES ('Prospecting', 1, 150, 0);
+INSERT INTO crm_shinybesthk_com.vtiger_sales_stage (sales_stage, presence, picklist_valueid, sortorderid) VALUES ('Qualification', 1, 151, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_sales_stage (sales_stage, presence, picklist_valueid, sortorderid) VALUES ('Needs Analysis', 1, 152, 2);
+INSERT INTO crm_shinybesthk_com.vtiger_sales_stage (sales_stage, presence, picklist_valueid, sortorderid) VALUES ('Value Proposition', 1, 153, 3);
+INSERT INTO crm_shinybesthk_com.vtiger_sales_stage (sales_stage, presence, picklist_valueid, sortorderid) VALUES ('Id. Decision Makers', 1, 154, 4);
+INSERT INTO crm_shinybesthk_com.vtiger_sales_stage (sales_stage, presence, picklist_valueid, sortorderid) VALUES ('Perception Analysis', 1, 155, 5);
+INSERT INTO crm_shinybesthk_com.vtiger_sales_stage (sales_stage, presence, picklist_valueid, sortorderid) VALUES ('Proposal or Price Quote', 1, 156, 6);
+INSERT INTO crm_shinybesthk_com.vtiger_sales_stage (sales_stage, presence, picklist_valueid, sortorderid) VALUES ('Negotiation or Review', 1, 157, 7);
+INSERT INTO crm_shinybesthk_com.vtiger_sales_stage (sales_stage, presence, picklist_valueid, sortorderid) VALUES ('Closed Won', 0, 158, 8);
+INSERT INTO crm_shinybesthk_com.vtiger_sales_stage (sales_stage, presence, picklist_valueid, sortorderid) VALUES ('Closed Lost', 0, 159, 9);

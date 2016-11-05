@@ -1,0 +1,1 @@
+INSERT INTO crm_shinybesthk_com.vtiger_quotestage_seq (id) VALUES (5);

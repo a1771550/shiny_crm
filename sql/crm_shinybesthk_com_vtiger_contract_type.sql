@@ -1,0 +1,3 @@
+INSERT INTO crm_shinybesthk_com.vtiger_contract_type (contract_type, presence, picklist_valueid, sortorderid) VALUES ('Support', 1, 232, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_contract_type (contract_type, presence, picklist_valueid, sortorderid) VALUES ('Services', 1, 233, 2);
+INSERT INTO crm_shinybesthk_com.vtiger_contract_type (contract_type, presence, picklist_valueid, sortorderid) VALUES ('Administrative', 1, 234, 3);

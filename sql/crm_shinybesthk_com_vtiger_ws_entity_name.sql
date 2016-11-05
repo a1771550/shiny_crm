@@ -1,0 +1,5 @@
+INSERT INTO crm_shinybesthk_com.vtiger_ws_entity_name (entity_id, name_fields, index_field, table_name) VALUES (20, 'groupname', 'groupid', 'vtiger_groups');
+INSERT INTO crm_shinybesthk_com.vtiger_ws_entity_name (entity_id, name_fields, index_field, table_name) VALUES (21, 'currency_name', 'id', 'vtiger_currency_info');
+INSERT INTO crm_shinybesthk_com.vtiger_ws_entity_name (entity_id, name_fields, index_field, table_name) VALUES (22, 'foldername', 'folderid', 'vtiger_attachmentsfolder');
+INSERT INTO crm_shinybesthk_com.vtiger_ws_entity_name (entity_id, name_fields, index_field, table_name) VALUES (23, 'organizationname', 'groupid', 'vtiger_organizationdetails');
+INSERT INTO crm_shinybesthk_com.vtiger_ws_entity_name (entity_id, name_fields, index_field, table_name) VALUES (34, 'taxlabel', 'taxid', 'vtiger_inventorytaxinfo');

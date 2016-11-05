@@ -1,0 +1,3 @@
+INSERT INTO crm_shinybesthk_com.vtiger_defaulteventstatus (defaulteventstatus, presence, picklist_valueid, sortorderid) VALUES ('Planned', 1, 296, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_defaulteventstatus (defaulteventstatus, presence, picklist_valueid, sortorderid) VALUES ('Held', 1, 297, 2);
+INSERT INTO crm_shinybesthk_com.vtiger_defaulteventstatus (defaulteventstatus, presence, picklist_valueid, sortorderid) VALUES ('Not Held', 1, 298, 3);

@@ -1,0 +1,1 @@
+INSERT INTO crm_shinybesthk_com.vtiger_wsapp (name, appkey, type) VALUES ('vtigerCRM', '5777e19a5817a', 'user');

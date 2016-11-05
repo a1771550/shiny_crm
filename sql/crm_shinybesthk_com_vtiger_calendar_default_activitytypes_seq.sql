@@ -1,0 +1,1 @@
+INSERT INTO crm_shinybesthk_com.vtiger_calendar_default_activitytypes_seq (id) VALUES (8);

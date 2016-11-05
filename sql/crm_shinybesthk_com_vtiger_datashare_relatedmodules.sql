@@ -1,0 +1,9 @@
+INSERT INTO crm_shinybesthk_com.vtiger_datashare_relatedmodules (datashare_relatedmodule_id, tabid, relatedto_tabid) VALUES (1, 6, 2);
+INSERT INTO crm_shinybesthk_com.vtiger_datashare_relatedmodules (datashare_relatedmodule_id, tabid, relatedto_tabid) VALUES (2, 6, 13);
+INSERT INTO crm_shinybesthk_com.vtiger_datashare_relatedmodules (datashare_relatedmodule_id, tabid, relatedto_tabid) VALUES (3, 6, 20);
+INSERT INTO crm_shinybesthk_com.vtiger_datashare_relatedmodules (datashare_relatedmodule_id, tabid, relatedto_tabid) VALUES (4, 6, 22);
+INSERT INTO crm_shinybesthk_com.vtiger_datashare_relatedmodules (datashare_relatedmodule_id, tabid, relatedto_tabid) VALUES (5, 6, 23);
+INSERT INTO crm_shinybesthk_com.vtiger_datashare_relatedmodules (datashare_relatedmodule_id, tabid, relatedto_tabid) VALUES (6, 2, 20);
+INSERT INTO crm_shinybesthk_com.vtiger_datashare_relatedmodules (datashare_relatedmodule_id, tabid, relatedto_tabid) VALUES (7, 2, 22);
+INSERT INTO crm_shinybesthk_com.vtiger_datashare_relatedmodules (datashare_relatedmodule_id, tabid, relatedto_tabid) VALUES (8, 20, 22);
+INSERT INTO crm_shinybesthk_com.vtiger_datashare_relatedmodules (datashare_relatedmodule_id, tabid, relatedto_tabid) VALUES (9, 22, 23);

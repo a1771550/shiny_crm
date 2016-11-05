@@ -1,0 +1,2 @@
+INSERT INTO crm_shinybesthk_com.vtiger_status (status, presence, picklist_valueid) VALUES ('Active', 0, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_status (status, presence, picklist_valueid) VALUES ('Inactive', 1, 1);

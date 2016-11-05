@@ -1,0 +1,2 @@
+INSERT INTO crm_shinybesthk_com.vtiger_currency_info (currency_name, currency_code, currency_symbol, conversion_rate, currency_status, defaultid, deleted) VALUES ('China, Yuan Renminbi', 'CNY', '¥', 1.00000, 'Active', '-11', 0);
+INSERT INTO crm_shinybesthk_com.vtiger_currency_info (currency_name, currency_code, currency_symbol, conversion_rate, currency_status, defaultid, deleted) VALUES ('Hong Kong, Dollars', 'HKD', 'HK$', 0.86000, 'Active', '0', 0);

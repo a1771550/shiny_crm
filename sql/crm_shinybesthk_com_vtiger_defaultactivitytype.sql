@@ -1,0 +1,2 @@
+INSERT INTO crm_shinybesthk_com.vtiger_defaultactivitytype (defaultactivitytype, presence, picklist_valueid, sortorderid) VALUES ('Call', 1, 299, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_defaultactivitytype (defaultactivitytype, presence, picklist_valueid, sortorderid) VALUES ('Meeting', 1, 300, 2);

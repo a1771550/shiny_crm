@@ -1,0 +1,3 @@
+INSERT INTO crm_shinybesthk_com.vtiger_inventorytaxinfo (taxid, taxname, taxlabel, percentage, deleted) VALUES (1, 'tax1', 'VAT', 4.500, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_inventorytaxinfo (taxid, taxname, taxlabel, percentage, deleted) VALUES (2, 'tax2', 'Sales', 10.000, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_inventorytaxinfo (taxid, taxname, taxlabel, percentage, deleted) VALUES (3, 'tax3', 'Service', 12.500, 1);

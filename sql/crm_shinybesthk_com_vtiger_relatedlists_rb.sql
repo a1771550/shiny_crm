@@ -1,0 +1,1 @@
+INSERT INTO crm_shinybesthk_com.vtiger_relatedlists_rb (entityid, action, rel_table, rel_column, ref_column, related_crm_ids) VALUES (105, 'update', 'vtiger_modcomments', 'related_to', 'modcommentsid', '120,123,124');

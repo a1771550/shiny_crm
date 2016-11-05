@@ -1,0 +1,2 @@
+INSERT INTO crm_shinybesthk_com.vtiger_opportunity_type (opportunity_type, presence, picklist_valueid, sortorderid) VALUES ('Existing Business', 1, 128, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_opportunity_type (opportunity_type, presence, picklist_valueid, sortorderid) VALUES ('New Business', 1, 129, 2);

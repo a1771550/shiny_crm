@@ -1,0 +1,3 @@
+INSERT INTO crm_shinybesthk_com.vtiger_activitytype (activitytype, presence, picklist_valueid, sortorderid) VALUES ('Call', 0, 12, 0);
+INSERT INTO crm_shinybesthk_com.vtiger_activitytype (activitytype, presence, picklist_valueid, sortorderid) VALUES ('Meeting', 0, 13, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_activitytype (activitytype, presence, picklist_valueid, sortorderid) VALUES ('Mobile Call', 0, 295, 1);

@@ -1,0 +1,1 @@
+INSERT INTO crm_shinybesthk_com.vtiger_def_org_share_seq (id) VALUES (25);

@@ -1,0 +1,3 @@
+INSERT INTO crm_shinybesthk_com.vtiger_contract_priority (contract_priority, presence, picklist_valueid, sortorderid) VALUES ('Low', 1, 229, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_contract_priority (contract_priority, presence, picklist_valueid, sortorderid) VALUES ('Normal', 1, 230, 2);
+INSERT INTO crm_shinybesthk_com.vtiger_contract_priority (contract_priority, presence, picklist_valueid, sortorderid) VALUES ('High', 1, 231, 3);

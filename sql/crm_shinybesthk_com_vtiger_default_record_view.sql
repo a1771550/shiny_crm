@@ -1,0 +1,2 @@
+INSERT INTO crm_shinybesthk_com.vtiger_default_record_view (default_record_view, sortorderid, presence) VALUES ('Summary', 1, 1);
+INSERT INTO crm_shinybesthk_com.vtiger_default_record_view (default_record_view, sortorderid, presence) VALUES ('Detail', 2, 1);

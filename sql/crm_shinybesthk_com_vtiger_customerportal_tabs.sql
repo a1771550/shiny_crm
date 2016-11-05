@@ -1,0 +1,13 @@
+INSERT INTO crm_shinybesthk_com.vtiger_customerportal_tabs (tabid, visible, sequence) VALUES (4, 1, 9);
+INSERT INTO crm_shinybesthk_com.vtiger_customerportal_tabs (tabid, visible, sequence) VALUES (6, 1, 10);
+INSERT INTO crm_shinybesthk_com.vtiger_customerportal_tabs (tabid, visible, sequence) VALUES (8, 1, 8);
+INSERT INTO crm_shinybesthk_com.vtiger_customerportal_tabs (tabid, visible, sequence) VALUES (13, 1, 2);
+INSERT INTO crm_shinybesthk_com.vtiger_customerportal_tabs (tabid, visible, sequence) VALUES (14, 1, 6);
+INSERT INTO crm_shinybesthk_com.vtiger_customerportal_tabs (tabid, visible, sequence) VALUES (15, 1, 3);
+INSERT INTO crm_shinybesthk_com.vtiger_customerportal_tabs (tabid, visible, sequence) VALUES (20, 1, 5);
+INSERT INTO crm_shinybesthk_com.vtiger_customerportal_tabs (tabid, visible, sequence) VALUES (23, 1, 4);
+INSERT INTO crm_shinybesthk_com.vtiger_customerportal_tabs (tabid, visible, sequence) VALUES (30, 1, 7);
+INSERT INTO crm_shinybesthk_com.vtiger_customerportal_tabs (tabid, visible, sequence) VALUES (44, 1, 11);
+INSERT INTO crm_shinybesthk_com.vtiger_customerportal_tabs (tabid, visible, sequence) VALUES (45, 1, 12);
+INSERT INTO crm_shinybesthk_com.vtiger_customerportal_tabs (tabid, visible, sequence) VALUES (46, 1, 13);
+INSERT INTO crm_shinybesthk_com.vtiger_customerportal_tabs (tabid, visible, sequence) VALUES (47, 1, 14);

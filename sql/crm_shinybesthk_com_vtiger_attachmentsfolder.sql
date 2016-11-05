@@ -1,0 +1,1 @@
+INSERT INTO crm_shinybesthk_com.vtiger_attachmentsfolder (foldername, description, createdby, sequence) VALUES ('Default', 'This is a Default Folder', 1, 1);

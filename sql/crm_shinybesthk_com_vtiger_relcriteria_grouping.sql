@@ -1,0 +1,10 @@
+INSERT INTO crm_shinybesthk_com.vtiger_relcriteria_grouping (groupid, queryid, group_condition, condition_expression) VALUES (1, 1, '', '0');
+INSERT INTO crm_shinybesthk_com.vtiger_relcriteria_grouping (groupid, queryid, group_condition, condition_expression) VALUES (1, 2, '', '0');
+INSERT INTO crm_shinybesthk_com.vtiger_relcriteria_grouping (groupid, queryid, group_condition, condition_expression) VALUES (1, 3, '', '0');
+INSERT INTO crm_shinybesthk_com.vtiger_relcriteria_grouping (groupid, queryid, group_condition, condition_expression) VALUES (1, 7, '', '0');
+INSERT INTO crm_shinybesthk_com.vtiger_relcriteria_grouping (groupid, queryid, group_condition, condition_expression) VALUES (1, 12, '', '0');
+INSERT INTO crm_shinybesthk_com.vtiger_relcriteria_grouping (groupid, queryid, group_condition, condition_expression) VALUES (1, 15, '', '0 and 1');
+INSERT INTO crm_shinybesthk_com.vtiger_relcriteria_grouping (groupid, queryid, group_condition, condition_expression) VALUES (1, 22, '', '0');
+INSERT INTO crm_shinybesthk_com.vtiger_relcriteria_grouping (groupid, queryid, group_condition, condition_expression) VALUES (1, 23, '', '0');
+INSERT INTO crm_shinybesthk_com.vtiger_relcriteria_grouping (groupid, queryid, group_condition, condition_expression) VALUES (1, 24, '', '0');
+INSERT INTO crm_shinybesthk_com.vtiger_relcriteria_grouping (groupid, queryid, group_condition, condition_expression) VALUES (1, 25, '', '0');
