@@ -35,7 +35,51 @@
     <favorites_list name="shiny" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="Viewer.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/runtime/Viewer.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-449">
+              <caret line="28" column="63" selection-start-line="28" selection-start-column="63" selection-end-line="28" selection-end-column="63" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoggerManager.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/libraries/log4php/LoggerManager.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="181">
+              <caret line="52" column="39" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Utils.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/Install/models/Utils.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="181">
+              <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Utils.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/vtlib/Vtiger/Utils.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="291">
+              <caret line="299" column="25" selection-start-line="299" selection-start-column="25" selection-end-line="299" selection-end-column="25" />
+              <folding>
+                <marker date="1478252727258" expanded="true" signature="5261:5274" ph="CREATE TABLE... ${$tablename}" />
+                <marker date="1478252727258" expanded="true" signature="5912:5924" ph="ALTER TABLE ${$tablename}... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -553,22 +597,22 @@
       <workItem from="1478244712331" duration="172000" />
       <workItem from="1478245573459" duration="5461000" />
       <workItem from="1478264575542" duration="24231000" />
-      <workItem from="1478416739276" duration="21866000" />
+      <workItem from="1478416739276" duration="22683000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51730000" />
+    <option name="totallyTimeSpent" value="52547000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1920" height="993" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2421875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23541667" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3576233" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3576233" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -614,82 +658,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modules/Services/models/Module.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="54" column="43" selection-start-line="54" selection-start-column="43" selection-end-line="54" selection-end-column="43" />
-          <folding>
-            <marker date="1478428429047" expanded="true" signature="2306:3328" ph="SELECT vtige... vtiger_pricebook" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/Vendors/Vendors.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="117" column="40" selection-start-line="117" selection-start-column="40" selection-end-line="117" selection-end-column="40" />
-          <folding>
-            <marker date="1478428471193" expanded="true" signature="5545:6377" ph="SELECT vtige... vtiger_products" />
-            <marker date="1478428471193" expanded="true" signature="9082:10002" ph="select case vtiger_purchaseorder" />
-            <marker date="1478428471193" expanded="true" signature="11067:11919" ph="SELECT ${$fi... ${$this-&gt;entity_table}" />
-            <marker date="1478428471193" expanded="true" signature="14712:15957" ph="SELECT case vtiger_contactdetails" />
-            <marker date="1478428471193" expanded="true" signature="17433:17583" ph="select ${$id... ${$rel_table}" />
-            <marker date="1478428471193" expanded="true" signature="17525:17582" ph="select ${$id... ${$rel_table}" />
-            <marker date="1478428471193" expanded="true" signature="17814:17895" ph="update ${$re... " />
-            <marker date="1478428471193" expanded="true" signature="19904:20833" ph="SELECT case vtiger_activity" />
-            <marker date="1478428471193" expanded="true" signature="25294:25599" ph="SELECT vtige... vtiger_crmentity" />
-            <marker date="1478428471193" expanded="true" signature="25829:25884" ph="UPDATE vtige... " />
-            <marker date="1478428471193" expanded="true" signature="26113:26168" ph="INSERT INTO vtiger_relatedlists_rb... " />
-            <marker date="1478428471193" expanded="true" signature="26229:26284" ph="SELECT produ... vtiger_products" />
-            <marker date="1478428471193" expanded="true" signature="26685:26740" ph="INSERT INTO vtiger_relatedlists_rb... " />
-            <marker date="1478428471193" expanded="true" signature="26807:26867" ph="UPDATE vtige... " />
-            <marker date="1478428471193" expanded="true" signature="27922:27970" ph="insert into vtiger_vendorcontactrel... " />
-            <marker date="1478428471193" expanded="true" signature="28058:28114" ph="update vtige... " />
-            <marker date="1478428471193" expanded="true" signature="28506:28574" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/Vtiger/models/RelationListView.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="194" column="50" selection-start-line="194" selection-start-column="50" selection-end-line="194" selection-end-column="50" />
-          <folding>
-            <marker date="1429014606000" expanded="true" signature="9959:10022" ph="select attac... vtiger_seattachmentsrel" />
-            <marker date="1429014606000" expanded="true" signature="19485:19546" ph="SELECT curre... vtiger_currency_info" />
-            <marker date="1429014606000" expanded="true" signature="19620:19680" ph="SELECT curre... vtiger_products" />
-            <marker date="1429014606000" expanded="true" signature="19758:19817" ph="SELECT curre... vtiger_service" />
-            <marker date="1429014606000" expanded="true" signature="20546:20682" ph="SELECT curre... vtiger_currency_info" />
-            <marker date="1429014606000" expanded="true" signature="20608:20680" ph="SELECT curre... ${$tableName}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/ModTracker/ModTracker.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1467474326000" expanded="true" signature="1482:1529" ph="UPDATE vtige... " />
-            <marker date="1467474326000" expanded="true" signature="1696:1772" ph="SELECT max(s... vtiger_settings_field" />
-            <marker date="1467474326000" expanded="true" signature="1961:2086" ph="INSERT INTO vtiger_settings_field... " />
-            <marker date="1467474326000" expanded="true" signature="3116:3152" ph="SELECT * FRO... vtiger_modtracker_tabs" />
-            <marker date="1467474326000" expanded="true" signature="3829:3875" ph="INSERT INTO vtiger_modtracker_tabs... " />
-            <marker date="1467474326000" expanded="true" signature="3976:4037" ph="UPDATE vtige... " />
-            <marker date="1467474326000" expanded="true" signature="4476:4522" ph="INSERT INTO vtiger_modtracker_tabs... " />
-            <marker date="1467474326000" expanded="true" signature="4621:4682" ph="UPDATE vtige... " />
-            <marker date="1467474326000" expanded="true" signature="5420:5543" ph="SELECT * FRO... vtiger_modtracker_tabs" />
-            <marker date="1467474326000" expanded="true" signature="6129:6181" ph="SELECT * FRO... vtiger_modtracker_tabs" />
-            <marker date="1467474326000" expanded="true" signature="6657:6770" ph="SELECT * FRO... vtiger_links" />
-            <marker date="1467474326000" expanded="true" signature="8130:8602" ph="SELECT id, m... " />
-            <marker date="1467474326000" expanded="true" signature="10366:10508" ph="SELECT * FRO... vtiger_modtracker_basic" />
-            <marker date="1467474326000" expanded="true" signature="11355:11571" ph="SELECT * FRO... vtiger_modtracker_detail" />
-            <marker date="1467474326000" expanded="true" signature="12812:12913" ph="INSERT INTO vtiger_modtracker_basic... " />
-            <marker date="1467474326000" expanded="true" signature="13035:13141" ph="INSERT INTO vtiger_modtracker_relations... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pkg/vtiger/modules/ModTracker/modules/ModTracker/ModTracker.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -2655,6 +2623,41 @@
             <marker date="1478438805832" expanded="true" signature="71927:72046" ph="DELETE FROM " />
             <marker date="1478438805832" expanded="true" signature="72589:72653" ph="SELECT * fro... vtiger_seproductsrel" />
             <marker date="1478438805832" expanded="true" signature="72738:72785" ph="insert into vtiger_seproductsrel... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/runtime/Viewer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-449">
+          <caret line="28" column="63" selection-start-line="28" selection-start-column="63" selection-end-line="28" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libraries/log4php/LoggerManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="52" column="39" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/Install/models/Utils.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vtlib/Vtiger/Utils.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="299" column="25" selection-start-line="299" selection-start-column="25" selection-end-line="299" selection-end-column="25" />
+          <folding>
+            <marker date="1478252727258" expanded="true" signature="5261:5274" ph="CREATE TABLE... ${$tablename}" />
+            <marker date="1478252727258" expanded="true" signature="5912:5924" ph="ALTER TABLE ${$tablename}... " />
           </folding>
         </state>
       </provider>
