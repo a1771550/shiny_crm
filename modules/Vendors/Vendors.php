@@ -115,6 +115,7 @@ class Vendors extends CRMEntity {
 
 		$query = "SELECT vtiger_products.productid, vtiger_products.productname, vtiger_products.productcode,
 					vtiger_products.commissionrate, vtiger_products.qty_per_unit, vtiger_products.unit_price,
+					vtiger_products.cost,
 					vtiger_crmentity.crmid, vtiger_crmentity.smownerid,vtiger_vendor.vendorname
 			  		FROM vtiger_products
 			  		INNER JOIN vtiger_vendor ON vtiger_vendor.vendorid = vtiger_products.vendor_id

@@ -65,7 +65,7 @@
 			{/foreach}
 		</table>
 	</div>
-	<!--added this div for Temporarily -->
+	<!--added this div for Temporarily test-->
 	{if $LISTVIEW_ENTRIES_COUNT eq '0'}
 		<div class="row-fluid">
 			<div class="emptyRecordsDiv">{vtranslate('LBL_EQ_ZERO', $MODULE_NAME)} {vtranslate($MODULE_NAME, $MODULE_NAME)} {vtranslate('LBL_FOUND', $MODULE_NAME)}.</div>
@@ -79,3 +79,4 @@
 </div>
 {/if}
 {/strip}
+

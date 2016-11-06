@@ -16,10 +16,10 @@ class Products_Detail_View extends Vtiger_Detail_View {
 		$moduleName = $request->getModule();
 
 		$recordModel = Vtiger_Record_Model::getInstanceById($recordId, $moduleName);
-		$baseCurrenctDetails = $recordModel->getBaseCurrencyDetails();
+		$baseCurrencyDetails = $recordModel->getBaseCurrencyDetails();
 		
 		$viewer = $this->getViewer($request);
-		$viewer->assign('BASE_CURRENCY_SYMBOL', $baseCurrenctDetails['symbol']);
+		$viewer->assign('BASE_CURRENCY_SYMBOL', $baseCurrencyDetails['symbol']);
 		$viewer->assign('TAXCLASS_DETAILS', $recordModel->getTaxClassDetails());
 		$viewer->assign('IMAGE_DETAILS', $recordModel->getImageDetails());
 
@@ -92,12 +92,12 @@ class Products_Detail_View extends Vtiger_Detail_View {
 		$noOfEntries = count($models);
 		
 		if($relatedModuleName == 'PriceBooks'){
-			foreach ($models as $recordId => $recorModel) {
+			foreach ($models as $recordId => $recordModel) {
 				$productIdsList[$parentId] = $parentId;
-				$relatedRecordCurrencyId = $recorModel->get('currency_id');
+				$relatedRecordCurrencyId = $recordModel->get('currency_id');
 				$parentModuleModel = $parentRecordModel->getModule();
 				$unitPricesList = $parentModuleModel->getPricesForProducts($relatedRecordCurrencyId, $productIdsList);
-				$recorModel->set('unit_price', $unitPricesList[$parentId]);
+				$recordModel->set('unit_price', $unitPricesList[$parentId]);
 			}
 		}
 

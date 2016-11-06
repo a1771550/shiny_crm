@@ -21,7 +21,8 @@
 	data-fieldinfo='{$FIELD_INFO}' value="{$FIELD_MODEL->getEditViewDisplayValue($FIELD_MODEL->get('fieldvalue'))}" {if !empty($SPECIAL_VALIDATOR)}data-validator='{Zend_Json::encode($SPECIAL_VALIDATOR)}'{/if} 
 	data-decimal-seperator='{$USER_MODEL->get('currency_decimal_separator')}' data-group-seperator='{$USER_MODEL->get('currency_grouping_separator')}' data-number-of-decimal-places='{$USER_MODEL->get('no_of_currency_decimals')}'/>
 </div>
-{else if ($FIELD_MODEL->get('uitype') eq '72') && ($FIELD_MODEL->getName() eq 'unit_price')}
+{else if ($FIELD_MODEL->get('uitype') eq '72') && (($FIELD_MODEL->getName() eq 'unit_price')||$FIELD_MODEL->getName()
+eq 'cost')}
 	<div class="input-prepend">
 		<div class="row-fluid">
 			<span class="span1">

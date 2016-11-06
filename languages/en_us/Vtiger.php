@@ -393,6 +393,7 @@ $languageStrings = array(
 	'LBL_PREVIOUS_FY' => 'Previous FY',
 	'LBL_PRE_TAX_TOTAL' => 'Pre Tax Total',
 	'LBL_PRICING_INFORMATION' => 'Pricing Information',
+	'LBL_COST_INFORMATION' => 'Cost Information',
 	'LBL_PRIVACY_POLICY' => 'Privacy Policy',
 	'LBL_PROFILE_PASSWORD' => 'Profile / Password',
 	'LBL_QTY' => 'Quantity',

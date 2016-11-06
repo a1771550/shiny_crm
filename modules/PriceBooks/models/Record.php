@@ -63,6 +63,25 @@ class PriceBooks_Record_Model extends Vtiger_Record_Model {
 	}
 
 	/**
+	 * Function updates ListCost for PriceBook-Product/Service relation
+	 * @param <Integer> $relatedRecordId - Product/Service Id
+	 * @param <Integer> $price - listprice
+	 */
+	/*function updateListCost($relatedRecordId, $price) {
+		$db = PearDatabase::getInstance();
+
+		$result = $db->pquery('SELECT * FROM vtiger_pricebookproductrel WHERE pricebookid = ? AND productid = ?',
+			array($this->getId(), $relatedRecordId));
+		if($db->num_rows($result)) {
+			$db->pquery('UPDATE vtiger_pricebookproductrel SET listprice = ? WHERE pricebookid = ? AND productid = ?',
+				array($price, $this->getId(), $relatedRecordId));
+		} else {
+			$db->pquery('INSERT INTO vtiger_pricebookproductrel (pricebookid,productid,listprice,usedcurrency) values(?,?,?,?)',
+				array($this->getId(), $relatedRecordId, $price, $this->get('currency_id')));
+		}
+	}*/
+
+	/**
 	 * Function deletes the List Price for PriceBooks-Product/Services relationship
 	 * @param <Integer> $relatedRecordId - Product/Service Id
 	 */

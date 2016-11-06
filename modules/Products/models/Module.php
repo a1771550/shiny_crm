@@ -103,7 +103,8 @@ class Products_Module_Model extends Vtiger_Module_Model {
 	 */
 	function get_product_pricebooks($recordModel, $relatedModuleModel) {
 		$query = 'SELECT vtiger_pricebook.pricebookid, vtiger_pricebook.bookname, vtiger_pricebook.active, vtiger_crmentity.crmid, 
-						vtiger_crmentity.smownerid, vtiger_pricebookproductrel.listprice, vtiger_products.unit_price
+						vtiger_crmentity.smownerid, vtiger_pricebookproductrel.listprice, vtiger_products.unit_price,
+						vtiger_products.cost
 					FROM vtiger_pricebook
 					INNER JOIN vtiger_pricebookproductrel ON vtiger_pricebook.pricebookid = vtiger_pricebookproductrel.pricebookid
 					INNER JOIN vtiger_crmentity on vtiger_crmentity.crmid = vtiger_pricebook.pricebookid

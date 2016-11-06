@@ -2,9 +2,25 @@
   <dictionary name="kevinlau">
     <words>
       <w>blogs</w>
+      <w>columnname</w>
+      <w>commissionrate</w>
       <w>csrf</w>
+      <w>currencyid</w>
+      <w>fieldlist</w>
+      <w>listview</w>
+      <w>modifiedtime</w>
+      <w>orderby</w>
+      <w>productcode</w>
+      <w>productcostrel</w>
+      <w>productcurrencyrel</w>
+      <w>productid</w>
+      <w>productname</w>
+      <w>serviceid</w>
       <w>smartsymbol</w>
       <w>smartsymbolglobal</w>
+      <w>sortorder</w>
+      <w>tablename</w>
+      <w>unitprice</w>
       <w>vtiger</w>
       <w>vtlib</w>
       <w>webservices</w>

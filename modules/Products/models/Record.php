@@ -223,7 +223,7 @@ class Products_Record_Model extends Vtiger_Record_Model {
 
 	/**
 	 * Function to get price details
-	 * @return <Array> List of prices
+	 * @return array|Value <Array> List of prices
 	 */
 	public function getPriceDetails() {
 		$priceDetails = $this->get('priceDetails');
@@ -233,6 +233,21 @@ class Products_Record_Model extends Vtiger_Record_Model {
 		$priceDetails = getPriceDetailsForProduct($this->getId(), $this->get('unit_price'), 'available', $this->getModuleName());
 		$this->set('priceDetails', $priceDetails);
 		return $priceDetails;
+	}
+
+	/**
+	 * Function to get cost details
+	 * @return Value <Array> List of costs
+	 */
+	public function getCostDetails() {
+		$costDetails = $this->get('costDetails');
+		if (!empty($costDetails)) {
+			return $costDetails;
+		}
+		$costDetails = getCostDetailsForProduct($this->getId(), $this->get('cost'), 'available',
+			$this->getModuleName());
+		$this->set('costDetails', $costDetails);
+		return $costDetails;
 	}
 
 	/**

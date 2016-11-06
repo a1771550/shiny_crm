@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2016-11-05 14:18:01
+<?php /* Smarty version Smarty-3.1.7, created on 2016-11-06 11:34:30
          compiled from "/var/www/html/shiny_crm/includes/runtime/../../layouts/vlayout/modules/Vtiger/DetailViewBlockView.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1744258988581dea193ba0f4-81289801%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '120e9baa9459713ea713b3597cf5f8100ec43885' => 
     array (
       0 => '/var/www/html/shiny_crm/includes/runtime/../../layouts/vlayout/modules/Vtiger/DetailViewBlockView.tpl',
-      1 => 1398442052,
+      1 => 1478425035,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_581dea194db49',
   'variables' => 
   array (
     'RECORD_STRUCTURE' => 0,
@@ -39,8 +41,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'IS_AJAX_ENABLED' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_581dea194db49',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_581dea194db49')) {function content_581dea194db49($_smarty_tpl) {?>
 <?php  $_smarty_tpl->tpl_vars['FIELD_MODEL_LIST'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['FIELD_MODEL_LIST']->_loop = false;
@@ -95,7 +95,7 @@ _detailView_fieldLabel_<?php echo $_smarty_tpl->tpl_vars['FIELD_MODEL']->value->
 " <?php if ($_smarty_tpl->tpl_vars['FIELD_MODEL']->value->getName()=='description'||$_smarty_tpl->tpl_vars['FIELD_MODEL']->value->get('uitype')=='69'){?> style='width:8%'<?php }?>><label class="muted pull-right marginRight10px"><?php ob_start();?><?php echo $_smarty_tpl->tpl_vars['FIELD_MODEL']->value->get('label');?>
 <?php $_tmp6=ob_get_clean();?><?php ob_start();?><?php echo $_smarty_tpl->tpl_vars['MODULE_NAME']->value;?>
 <?php $_tmp7=ob_get_clean();?><?php echo vtranslate($_tmp6,$_tmp7);?>
-<?php if (($_smarty_tpl->tpl_vars['FIELD_MODEL']->value->get('uitype')=='72')&&($_smarty_tpl->tpl_vars['FIELD_MODEL']->value->getName()=='unit_price')){?>(<?php echo $_smarty_tpl->tpl_vars['BASE_CURRENCY_SYMBOL']->value;?>
+<?php if (($_smarty_tpl->tpl_vars['FIELD_MODEL']->value->get('uitype')=='72')&&(($_smarty_tpl->tpl_vars['FIELD_MODEL']->value->getName()=='unit_price')||($_smarty_tpl->tpl_vars['FIELD_MODEL']->value->getName()=='cost'))){?>(<?php echo $_smarty_tpl->tpl_vars['BASE_CURRENCY_SYMBOL']->value;?>
 )<?php }?></label></td><td class="fieldValue <?php echo $_smarty_tpl->tpl_vars['WIDTHTYPE']->value;?>
 " id="<?php echo $_smarty_tpl->tpl_vars['MODULE_NAME']->value;?>
 _detailView_fieldValue_<?php echo $_smarty_tpl->tpl_vars['FIELD_MODEL']->value->getName();?>

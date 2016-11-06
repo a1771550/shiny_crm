@@ -45,9 +45,9 @@ class Products_Relation_Model extends Vtiger_Relation_Model {
 		if($functionName == 'get_product_pricebooks'){
 			$selectColumnSql = $selectColumnSql.' ,vtiger_pricebookproductrel.listprice, vtiger_pricebook.currency_id, vtiger_products.unit_price';
 		}
-		if($functionName == 'get_service_pricebooks'){
+		/*if($functionName == 'get_service_pricebooks'){
 			$selectColumnSql = $selectColumnSql.' ,vtiger_pricebookproductrel.listprice, vtiger_pricebook.currency_id, vtiger_service.unit_price';
-		}
+		}*/
 		$query = $selectColumnSql.' FROM '.$newQuery[1];
 		return $query;
 	}

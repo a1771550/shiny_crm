@@ -356,6 +356,24 @@ class VtigerLineItemOperation  extends VtigerActorOperation {
 		return $price;
 	}
 
+	function getProductCost($productId){
+		$db = PearDatabase::getInstance();
+		$sql = "select cost from vtiger_products where productid=?";
+		$params = array($productId);
+		$result = null;
+		$transactionSuccessful = vtws_runQueryAsTransaction($sql,$params,$result);
+		if(!$transactionSuccessful){
+			throw new WebServiceException(WebServiceErrorCode::$DATABASEQUERYERROR,
+				"Database error while performing required operation");
+		}
+		$cost = 0;
+		$it = new SqlResultIterator($db, $result);
+		foreach ($it as $row) {
+			$cost = $row->cost;
+		}
+		return $cost;
+	}
+
 	private function getLocationById($lineItemList, $id){
 		foreach ($lineItemList as $index=>$lineItem) {
 			if($lineItem['id'] == $id){

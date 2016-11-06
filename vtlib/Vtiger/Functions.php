@@ -909,10 +909,11 @@ class Vtiger_Functions {
 		return $query;
 	}
 
-    /** Function to get unitprice for a given product id
-    * @param $productid -- product id :: Type integer
-    * @returns $up -- up :: Type string
-    */
+	/** Function to get unitprice for a given product id
+	 * @param $productid -- product id :: Type integer
+	 * @param string $module
+	 * @return mixed|string $up -- up :: Type string
+	 */
     static function getUnitPrice($productid, $module='Products') {
         $adb = PearDatabase::getInstance();
         if($module == 'Services') {
@@ -921,9 +922,26 @@ class Vtiger_Functions {
             $query = "select unit_price from vtiger_products where productid=?";
         }
         $result = $adb->pquery($query, array($productid));
-        $unitpice = $adb->query_result($result,0,'unit_price');
-        return $unitpice;
+        $unitprice = $adb->query_result($result,0,'unit_price');
+        return $unitprice;
     }
+
+	/** Function to get cost for a given product id
+	 * @param $productid -- product id :: Type integer
+	 * @param string $module
+	 * @return mixed|string $up -- up :: Type string
+	 */
+	static function getCost($productid, $module='Products') {
+		$adb = PearDatabase::getInstance();
+		if($module == 'Services') {
+			$query = "select cost from vtiger_service where serviceid=?";
+		} else {
+			$query = "select cost from vtiger_products where productid=?";
+		}
+		$result = $adb->pquery($query, array($productid));
+		$cost = $adb->query_result($result,0,'cost');
+		return $cost;
+	}
 
 
     /**

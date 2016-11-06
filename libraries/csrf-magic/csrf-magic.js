@@ -49,7 +49,7 @@ CsrfMagic.prototype = {
             data.append(csrfMagicName,csrfMagicToken);
             return this.csrf_send(data);
         }else{
-	        console.log('prepend'+data);
+	        //console.log('prepend'+data);
             return this.csrf_send(prepend + data);
         }
     },

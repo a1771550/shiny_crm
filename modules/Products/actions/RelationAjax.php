@@ -36,6 +36,7 @@ class Products_RelationAjax_Action extends Vtiger_RelationAjax_Action {
 				if ($sourceRecordId && ($sourceModule === 'Products' || $sourceModule === 'Services')) {
 					$parentRecordModel = Vtiger_Record_Model::getInstanceById($sourceRecordId, $sourceModule);
 					$recordModel->updateListPrice($sourceRecordId, $parentRecordModel->get('unit_price'));
+					//$recordModel->updateListCost($sourceRecordId, $parentRecordModel->get('cost'));
 				}
 			}
 		}		

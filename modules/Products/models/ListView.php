@@ -13,7 +13,7 @@ class Products_ListView_Model extends Vtiger_ListView_Model {
 	/**
 	 * Function to get the list view entries
 	 * @param Vtiger_Paging_Model $pagingModel
-	 * @return <Array> - Associative array of record id mapped to Vtiger_Record_Model instance.
+	 * @return array <Array> - Associative array of record id mapped to Vtiger_Record_Model instance.
 	 */
 	public function getListViewEntries($pagingModel) {
 		$db = PearDatabase::getInstance();
@@ -23,7 +23,7 @@ class Products_ListView_Model extends Vtiger_ListView_Model {
 		$moduleModel = Vtiger_Module_Model::getInstance($moduleName);
 
 		$queryGenerator = $this->get('query_generator');
-		$listViewContoller = $this->get('listview_controller');
+		$listViewController = $this->get('listview_controller');
 
          $searchParams = $this->get('search_params');
         if(empty($searchParams)) {
@@ -131,7 +131,7 @@ class Products_ListView_Model extends Vtiger_ListView_Model {
 		$listResult = $db->pquery($listQuery, array());
 
 		$listViewRecordModels = array();
-		$listViewEntries =  $listViewContoller->getListViewRecords($moduleFocus,$moduleName, $listResult);
+		$listViewEntries =  $listViewController->getListViewRecords($moduleFocus,$moduleName, $listResult);
 		$pagingModel->calculatePageRange($listViewEntries);
 
 		if($db->num_rows($listResult) > $pageLimit && $sourceModule !== 'PriceBooks' && $sourceField !== 'priceBookRelatedList'){

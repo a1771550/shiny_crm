@@ -314,7 +314,7 @@ class ListViewController {
 				} elseif($field->getFieldDataType() == 'currency') {
 					if($value != '') {
 						if($field->getUIType() == 72) {
-							if($fieldName == 'unit_price') {
+							if($fieldName == 'unit_price' || $fieldName='cost') {
 								$currencyId = getProductBaseCurrency($recordId,$module);
 								$cursym_convrate = getCurrencySymbolandCRate($currencyId);
 								$currencySymbol = $cursym_convrate['symbol'];

@@ -86,7 +86,7 @@
 				 <td class="fieldLabel {$WIDTHTYPE}" id="{$MODULE_NAME}_detailView_fieldLabel_{$FIELD_MODEL->getName()}" {if $FIELD_MODEL->getName() eq 'description' or $FIELD_MODEL->get('uitype') eq '69'} style='width:8%'{/if}>
 					 <label class="muted pull-right marginRight10px">
 						 {vtranslate({$FIELD_MODEL->get('label')},{$MODULE_NAME})}
-						 {if ($FIELD_MODEL->get('uitype') eq '72') && ($FIELD_MODEL->getName() eq 'unit_price')}
+						 {if ($FIELD_MODEL->get('uitype') eq '72') && (($FIELD_MODEL->getName() eq 'unit_price')||($FIELD_MODEL->getName() eq 'cost'))}
 							({$BASE_CURRENCY_SYMBOL})
 						{/if}
 					 </label>

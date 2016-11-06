@@ -116,6 +116,7 @@ $server->wsdl->addComplexType(
 		'qtyinstock' => array('name'=>'qtyinstock','type'=>'xsd:string'),
 		'qty_per_unit' => array('name'=>'qty_per_unit','type'=>'xsd:string'),
 		'unit_price' => array('name'=>'unit_price','type'=>'xsd:string'),
+		'cost' => array('name'=>'cost','type'=>'xsd:string'),
 	)
 );
 
@@ -1722,7 +1723,7 @@ function get_list_values($id,$module,$sessionid,$only_mine='true')
 
 			$output[0][$module]['head'][0][$i]['fielddata'] = $fieldlabel;
 			$fieldvalue = $adb->query_result($res,$j,$fieldname);
-			$fieldValuesToRound = array('total','subtotal','adjustment','discount_amount','s_h_amount','pre_tax_total','received','balance','unit_price');
+			$fieldValuesToRound = array('total','subtotal','adjustment','discount_amount','s_h_amount','pre_tax_total','received','balance','unit_price','cost');
 
 			if($module == 'Quotes')
 			{
@@ -1805,6 +1806,10 @@ function get_list_values($id,$module,$sessionid,$only_mine='true')
 					$fieldvalue = round($fieldvalue, 2);
 				}
 				if($fieldname == 'unit_price'){
+					$sym = getCurrencySymbol($res,$j,'currency_id');
+					$fieldvalue = $sym.$fieldvalue;
+				}
+				if($fieldname == 'cost'){
 					$sym = getCurrencySymbol($res,$j,'currency_id');
 					$fieldvalue = $sym.$fieldvalue;
 				}
@@ -2184,7 +2189,7 @@ function get_product_list_values($id,$modulename,$sessionid,$only_mine='true')
 			where vtiger_inventoryproductrel.productid = vtiger_products.productid AND vtiger_crmentity.deleted=0 and (accountid in (". generateQuestionMarks($entity_ids_list) .") or contactid in  (". generateQuestionMarks($entity_ids_list) ."))";
 		$params[] = array($entity_ids_list,$entity_ids_list);
 	}
-	$fieldValuesToRound = array('unit_price','weight','commissionrate','qtyinstock');
+	$fieldValuesToRound = array('unit_price','cost','weight','commissionrate','qtyinstock');
 	for($k=0;$k<count($query);$k++)
 	{
 		$res[$k] = $adb->pquery($query[$k],$params[$k]);
@@ -2224,6 +2229,11 @@ function get_product_list_values($id,$modulename,$sessionid,$only_mine='true')
 				$fieldvalue = '<a href="index.php?module=Products&action=index&productid='.$fieldid.'">'.$fieldvalue.'</a>';
 
 				if($fieldname == 'unit_price'){
+					$sym = getCurrencySymbol($res[$k],$j,'currency_id');
+					$fieldvalue = $sym.$fieldvalue;
+				}
+
+				if($fieldname == 'cost'){
 					$sym = getCurrencySymbol($res[$k],$j,'currency_id');
 					$fieldvalue = $sym.$fieldvalue;
 				}
@@ -2537,6 +2547,12 @@ function get_details($id,$module,$customerid,$sessionid)
                 }
 		}
 		if($fieldname == 'unit_price'){
+			$sym = getCurrencySymbol($res,0,'currency_id');
+			$fieldvalue = round($fieldvalue, 2);
+			$fieldvalue = $sym.$fieldvalue;
+		}
+
+		if($fieldname == 'cost'){
 			$sym = getCurrencySymbol($res,0,'currency_id');
 			$fieldvalue = round($fieldvalue, 2);
 			$fieldvalue = $sym.$fieldvalue;
@@ -3127,7 +3143,7 @@ function get_service_list_values($id,$modulename,$sessionid,$only_mine='true')
 			getFieldVisibilityPermission('Services',$current_user->id,$fieldname);
 	}
 
-	$fieldValuesToRound = array('unit_price','commissionrate');
+	$fieldValuesToRound = array('unit_price','cost','commissionrate');
 
 	for($k=0;$k<count($query);$k++)
 	{
@@ -3172,6 +3188,11 @@ function get_service_list_values($id,$modulename,$sessionid,$only_mine='true')
 				$fieldvalue = '<a href="index.php?module=Services&action=index&id='.$fieldid.'">'.$fieldvalue.'</a>';
 
 				if($fieldname == 'unit_price'){
+					$sym = getCurrencySymbol($res[$k],$j,'currency_id');
+					$fieldvalue = $sym.$fieldvalue;
+				}
+
+				if($fieldname == 'cost'){
 					$sym = getCurrencySymbol($res[$k],$j,'currency_id');
 					$fieldvalue = $sym.$fieldvalue;
 				}

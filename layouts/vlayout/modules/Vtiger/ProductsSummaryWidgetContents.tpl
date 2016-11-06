@@ -40,6 +40,9 @@
 						<span class="span4">
 							<span class="pull-right">{$RELATED_RECORD->getDisplayValue('unit_price')}</span>
 						</span>
+                        <span class="span4">
+							<span class="pull-right">{$RELATED_RECORD->getDisplayValue('cost')}</span>
+						</span>
 					</div>
 				</li>
 			</ul>

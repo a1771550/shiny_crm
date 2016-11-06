@@ -502,7 +502,11 @@ class ReportRun extends CRMEntity
 		} elseif($selectedfields[0] == 'vtiger_products' && $selectedfields[1] == 'unit_price') {
 			$columnSQL = "concat(".$selectedfields[0].".currency_id,'::',innerProduct.actual_unit_price) AS '". decode_html($header_label) ."'";
 			$this->queryPlanner->addTable("innerProduct");
-		} elseif(in_array($selectedfields[2], $this->append_currency_symbol_to_value)) {
+		} elseif($selectedfields[0] == 'vtiger_products' && $selectedfields[1] == 'cost') {
+	        $columnSQL = "concat(".$selectedfields[0].".currency_id,'::',innerProduct.actual_cost) AS '". decode_html($header_label) ."'";
+	        $this->queryPlanner->addTable("innerProduct");
+        }
+		elseif(in_array($selectedfields[2], $this->append_currency_symbol_to_value)) {
 			if($selectedfields[1] == 'discount_amount') {
 				$columnSQL = "CONCAT(".$selectedfields[0].".currency_id,'::', IF(".$selectedfields[0].".discount_amount != '',".$selectedfields[0].".discount_amount, (".$selectedfields[0].".discount_percent/100) * ".$selectedfields[0].".subtotal)) AS ".decode_html($header_label);
 			} else {
@@ -2273,11 +2277,17 @@ class ReportRun extends CRMEntity
 						SELECT vtiger_products.productid,
 								(CASE WHEN (vtiger_products.currency_id = 1 ) THEN vtiger_products.unit_price
 									ELSE (vtiger_products.unit_price / vtiger_currency_info.conversion_rate) END
-								) AS actual_unit_price
+								) AS actual_unit_price,
+								(CASE WHEN (vtiger_products.currency_id = 1 ) THEN vtiger_products.cost
+									ELSE (vtiger_products.cost / vtiger_currency_info.conversion_rate) END
+								) AS actual_cost
 						FROM vtiger_products
 						LEFT JOIN vtiger_currency_info ON vtiger_products.currency_id = vtiger_currency_info.id
-						LEFT JOIN vtiger_productcurrencyrel ON vtiger_products.productid = vtiger_productcurrencyrel.productid
-						AND vtiger_productcurrencyrel.currencyid = ". $current_user->currency_id . "
+						LEFT JOIN vtiger_productcurrencyrel ON vtiger_products.productid = vtiger_productcurrencyrel
+						.productid 
+						LEFT JOIN vtiger_productcostrel ON vtiger_products.productid = vtiger_productcostrel
+						.productid 
+						AND vtiger_productcurrencyrel.currencyid = ". $current_user->currency_id . " AND vtiger_productcostrel.currencyid = ". $current_user->currency_id . "
 				) AS innerProduct ON innerProduct.productid = vtiger_products.productid";
 			}
 			$query .= " ".$this->getRelatedModulesQuery($module,$this->secondarymodule).
@@ -3893,9 +3903,9 @@ class ReportRun extends CRMEntity
 			$field =  " innerProduct.actual_unit_price";
 			$this->queryPlanner->addTable("innerProduct");
 		}
-		if($field_tablename == 'vtiger_service' && $field_columnname == 'unit_price') {
-			// Query needs to be rebuild to get the value in user preferred currency. [innerProduct and actual_unit_price are table and column alias.]
-			$field =  " innerService.actual_unit_price";
+		if($field_tablename == 'vtiger_service' && $field_columnname == 'cost') {
+			// Query needs to be rebuild to get the value in user preferred currency. [innerProduct and actual_cost are table and column alias.]
+			$field =  " innerService.actual_cost";
 			$this->queryPlanner->addTable("innerService");
 
 		}

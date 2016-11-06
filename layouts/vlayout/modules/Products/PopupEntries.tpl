@@ -16,6 +16,7 @@
 	<input type="hidden" value="{$SORT_ORDER}" id="sortOrder">
 	<input type="hidden" value="Inventory_Popup_Js" id="popUpClassName"/>
 	{assign var=WIDTHTYPE value=$CURRENT_USER_MODEL->get('rowheight')}
+
 	<div class="bottomscroll-div">
 		<table class="table table-bordered listViewEntriesTable">
 			<thead>
@@ -23,6 +24,7 @@
 					{if $MULTI_SELECT}
 					<th class="{$WIDTHTYPE}">
 						<input type="checkbox"  class="selectAllInCurrentPage" />
+                        <p>testing</p>
 					</th>
 					{/if}
 					{foreach item=LISTVIEW_HEADER from=$LISTVIEW_HEADERS}

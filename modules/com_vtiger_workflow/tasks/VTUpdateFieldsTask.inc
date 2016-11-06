@@ -87,6 +87,10 @@ class VTUpdateFieldsTask extends VTTask {
                     if($fieldDataType == 'currency' && $fieldName == 'unit_price') {
                         $fieldValue = $this->calculateProductUnitPrice($fieldValue);
                     }
+
+					if($fieldDataType == 'currency' && $fieldName == 'cost') {
+						$fieldValue = $this->calculateProductCost($fieldValue);
+					}
                     // for calendar time_start field db value will be in UTC format, we should convert to user format
                     if(trim($fieldInfo['value']) == 'time_start' && $moduleName == 'Calendar' && $fieldDataType == 'time'){
                         $date = new DateTime();
@@ -130,6 +134,13 @@ class VTUpdateFieldsTask extends VTTask {
                     }else{
 						$fieldValue = $this->convertValueToUserFormat($fieldInstance, $fieldValue);
                     }
+
+					//for Product Cost value converted with based product currency
+					if($fieldInstance && $fieldInstance->getFieldDataType() == 'currency' && $fieldName == 'cost') {
+						$fieldValue = $this->calculateProductCost($fieldValue);
+					}else{
+						$fieldValue = $this->convertValueToUserFormat($fieldInstance, $fieldValue);
+					}
 				} else {
 					if (preg_match('/([^:]+):boolean$/', $fieldValue, $match)) {
 						$fieldValue = $match[1];
@@ -143,6 +154,11 @@ class VTUpdateFieldsTask extends VTTask {
                     if($fieldInstance && $fieldInstance->getFieldDataType() == 'currency' && $fieldName == 'unit_price') {
                         $fieldValue = $this->calculateProductUnitPrice($fieldValue);
                     }
+
+					//for Product Cost value converted with based product currency
+					if($fieldInstance && $fieldInstance->getFieldDataType() == 'currency' && $fieldName == 'cost') {
+						$fieldValue = $this->calculateProductCost($fieldValue);
+					}
                     $fieldValueInDB = $fieldValue;
 				}
 
@@ -226,11 +242,12 @@ class VTUpdateFieldsTask extends VTTask {
 		return $fieldValue;
 	}
 
-    /**
-     * Function to calculate Product Unit Price.
-     * Product Unit Price value converted with based product currency
-     * @param type $fieldValue
-     */
+	/**
+	 * Function to calculate Product Unit Price.
+	 * Product Unit Price value converted with based product currency
+	 * @param type $fieldValue
+	 * @return type
+	 */
     public function calculateProductUnitPrice($fieldValue) {
         $currency_details = getAllCurrencies('all');
         for($i=0;$i<count($currency_details);$i++)  {
@@ -244,6 +261,26 @@ class VTUpdateFieldsTask extends VTTask {
         }
         return $fieldValue;
     }
+
+	/**
+	 * Function to calculate Product Cost.
+	 * Product Cost value converted with based product currency
+	 * @param type $fieldValue
+	 * @return type
+	 */
+	public function calculateProductCost($fieldValue) {
+		$currency_details = getAllCurrencies('all');
+		for($i=0;$i<count($currency_details);$i++)  {
+			$curid = $currency_details[$i]['curid'];
+			$cur_checkname = 'cur_' . $curid . '_check';
+			$cur_valuename = 'curname' . $curid;
+			if($cur_valuename == $_REQUEST['base_currency'] && ($_REQUEST[$cur_checkname] == 'on' || $_REQUEST[$cur_checkname] == 1)) {
+				$fieldValue = $fieldValue * $currency_details[$i]['conversionrate'];
+				$_REQUEST[$cur_valuename] = $fieldValue;
+			}
+		}
+		return $fieldValue;
+	}
 
 }
 

@@ -52,6 +52,20 @@ Vtiger_Edit_Js("Products_Edit_Js",{
 		});
 		return this;
 	},
+
+	/**
+	 * Function which aligns data just below global search element
+	 */
+	alignBelowCost : function(dataToAlign) {
+		var parentElem = jQuery('input[name="cost"]',this.getForm());
+		dataToAlign.position({
+			'of' : parentElem,
+			'my': "left top",
+			'at': "left bottom",
+			'collision' : 'flip'
+		});
+		return this;
+	},
 	
 	/**
 	 * Function to get current Element

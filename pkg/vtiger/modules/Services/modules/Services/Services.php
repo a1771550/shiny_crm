@@ -46,7 +46,8 @@ class Services extends CRMEntity {
 		'Service Name'=>Array('service'=>'servicename'),
         'Commission Rate'=>Array('service'=>'commissionrate'),
 		'No of Units'=>Array('service'=>'qty_per_unit'),
-		'Price'=>Array('service'=>'unit_price')
+		'Price'=>Array('service'=>'unit_price'),
+		'Cost'=>Array('service'=>'cost')
 	);
 	var $list_fields_name = Array(
 		/* Format: Field Label => fieldname */
@@ -54,7 +55,8 @@ class Services extends CRMEntity {
 		'Service Name'=>'servicename',
 		'Commission Rate'=>'commissionrate',
 		'No of Units'=>'qty_per_unit',
-		'Price'=>'unit_price'
+		'Price'=>'unit_price',
+		'Cost'=>'cost'
 	);
 
 	// Make the field link to detail view
@@ -66,17 +68,19 @@ class Services extends CRMEntity {
 		// tablename should not have prefix 'vtiger_'
 		'Service No'=>Array('service'=>'service_no'),
 		'Service Name'=>Array('service'=>'servicename'),
-		'Price'=>Array('service'=>'unit_price')
+		'Price'=>Array('service'=>'unit_price'),
+		'Cost'=>Array('service'=>'cost')
 	);
 	var $search_fields_name = Array(
 		/* Format: Field Label => fieldname */
 		'Service No'=>'service_no',
 		'Service Name'=>'servicename',
-		'Price'=>'unit_price'
+		'Price'=>'unit_price',
+		'Cost'=>'cost'
 	);
 
 	// For Popup window record selection
-	var $popup_fields = Array ('servicename','service_usageunit','unit_price');
+	var $popup_fields = Array ('servicename','service_usageunit','unit_price', 'cost');
 
 	// Placeholder for sort fields - All the fields will be initialized for Sorting through initSortFields
 	var $sortby_fields = Array();
@@ -167,8 +171,8 @@ class Services extends CRMEntity {
 		$log->debug("Exiting from insertTaxInformation($tablename, $module) method ...");
 	}
 
-	/**	function to save the service price information in vtiger_servicecurrencyrel table
-	 *	@param string $tablename - vtiger_tablename to save the service currency relationship (servicecurrencyrel)
+	/**	function to save the product price information in vtiger_productcurrencyrel table
+	 *	@param string $tablename - vtiger_tablename to save the product currency relationship (productcurrencyrel)
 	 *	@param string $module	 - current module name
 	 *	$return void
 	*/
@@ -228,6 +232,68 @@ class Services extends CRMEntity {
 		$log->debug("Exiting from insertPriceInformation($tablename, $module) method ...");
 	}
 
+	/**	function to save the product cost information in vtiger_productcostrel table
+	 *	@param string $tablename - vtiger_tablename to save the product currency relationship (productcostrel)
+	 *	@param string $module	 - current module name
+	 *	$return void
+	 */
+	function insertCostInformation($tablename, $module)
+	{
+		global $adb, $log, $current_user;
+		$log->debug("Entering into insertPriceInformation($tablename, $module) method ...");
+		//removed the update of currency_id based on the logged in user's preference : fix 6490
+
+
+		$currency_details = getAllCurrencies('all');
+
+		//Delete the existing currency relationship if any
+		if($this->mode == 'edit' &&  $_REQUEST['action'] != 'MassEditSave' && $_REQUEST['action'] != 'ProcessDuplicates')
+		{
+			for($i=0;$i<count($currency_details);$i++)
+			{
+				$curid = $currency_details[$i]['curid'];
+				$sql = "delete from vtiger_productcostrel where productid=? and currencyid=?";
+				$adb->pquery($sql, array($this->id,$curid));
+			}
+		}
+
+		$service_base_conv_rate = getBaseConversionRateForProduct($this->id, $this->mode,$module);
+
+		//Save the Product - Currency relationship if corresponding currency check box is enabled
+		for($i=0;$i<count($currency_details);$i++)
+		{
+			$curid = $currency_details[$i]['curid'];
+			$curname = $currency_details[$i]['currencylabel'];
+			$cur_checkname = 'cur_' . $curid . '_check';
+			$cur_valuename = 'curname' . $curid;
+			$base_currency_check = 'base_currency' . $curid;
+			$requestCost = CurrencyField::convertToDBFormat($_REQUEST['cost'], null, true);
+			$actualCost = CurrencyField::convertToDBFormat($_REQUEST[$cur_valuename], null, true);
+			if($_REQUEST[$cur_checkname] == 'on' || $_REQUEST[$cur_checkname] == 1)
+			{
+				$conversion_rate = $currency_details[$i]['conversionrate'];
+				$actual_conversion_rate = $service_base_conv_rate * $conversion_rate;
+				$converted_cost = $actual_conversion_rate * $requestCost;
+
+				$log->debug("Going to save the Product - $curname currency relationship");
+
+				$query = "insert into vtiger_productcostrel values(?,?,?,?)";
+				$adb->pquery($query, array($this->id,$curid,$converted_cost,$actualCost));
+
+				// Update the Product information with Base Currency choosen by the User.
+				if ($_REQUEST['base_currency'] == $cur_valuename) {
+					$adb->pquery("update vtiger_service set currency_id=?, cost=? where serviceid=?", array($curid, $actualCost, $this->id));
+				}
+			}else{
+				$curid = fetchCurrency($current_user->id);
+				$adb->pquery("update vtiger_service set currency_id=? where serviceid=?", array($curid, $this->id));
+			}
+		}
+
+		$log->debug("Exiting from insertPriceInformation($tablename, $module) method ...");
+	}
+
+
 	function updateUnitPrice() {
 		$prod_res = $this->db->pquery("select unit_price, currency_id from vtiger_service where serviceid=?", array($this->id));
 		$prod_unit_price = $this->db->query_result($prod_res, 0, 'unit_price');
@@ -235,6 +301,16 @@ class Services extends CRMEntity {
 
 		$query = "update vtiger_productcurrencyrel set actual_price=? where productid=? and currencyid=?";
 		$params = array($prod_unit_price, $this->id, $prod_base_currency);
+		$this->db->pquery($query, $params);
+	}
+
+	function updateCost() {
+		$prod_res = $this->db->pquery("select cost, currency_id from vtiger_service where serviceid=?", array($this->id));
+		$prod_cost = $this->db->query_result($prod_res, 0, 'cost');
+		$prod_base_currency = $this->db->query_result($prod_res, 0, 'currency_id');
+
+		$query = "update vtiger_productcostrel set actual_cost=? where productid=? and currencyid=?";
+		$params = array($prod_cost, $this->id, $prod_base_currency);
 		$this->db->pquery($query, $params);
 	}
 
@@ -970,11 +1046,16 @@ class Services extends CRMEntity {
 					SELECT vtiger_service.serviceid,
 							(CASE WHEN (vtiger_service.currency_id = 1 ) THEN vtiger_service.unit_price
 								ELSE (vtiger_service.unit_price / vtiger_currency_info.conversion_rate) END
-							) AS actual_unit_price
+							) AS actual_unit_price,
+							(CASE WHEN (vtiger_service.currency_id = 1 ) THEN vtiger_service.cost
+								ELSE (vtiger_service.cost / vtiger_currency_info.conversion_rate) END
+							) AS actual_cost
 					FROM vtiger_service
 					LEFT JOIN vtiger_currency_info ON vtiger_service.currency_id = vtiger_currency_info.id
 					LEFT JOIN vtiger_productcurrencyrel ON vtiger_service.serviceid = vtiger_productcurrencyrel.productid
+					LEFT JOIN vtiger_productcostrel ON vtiger_service.serviceid = vtiger_productcostrel.productid
 					AND vtiger_productcurrencyrel.currencyid = ". $current_user->currency_id . "
+					AND vtiger_productcostrel.currencyid = ". $current_user->currency_id . "
 				) AS innerService ON innerService.serviceid = vtiger_service.serviceid";
 			}
 			return $query;
@@ -1001,10 +1082,19 @@ class Services extends CRMEntity {
 			(CASE WHEN (vtiger_service.currency_id = " . $current_user->currency_id . " ) THEN vtiger_service.unit_price
 			WHEN (vtiger_productcurrencyrel.actual_price IS NOT NULL) THEN vtiger_productcurrencyrel.actual_price
 			ELSE (vtiger_service.unit_price / vtiger_currency_info.conversion_rate) * ". $current_user->conv_rate . " END
-			) AS actual_unit_price FROM vtiger_service
+			) AS actual_unit_price,
+			
+			(CASE WHEN (vtiger_service.currency_id = " . $current_user->currency_id . " ) THEN vtiger_service.cost
+			WHEN (vtiger_productcostrel.actual_cost IS NOT NULL) THEN vtiger_productcostrel.actual_cost
+			ELSE (vtiger_service.cost / vtiger_currency_info.conversion_rate) * ". $current_user->conv_rate . " END
+			) AS actual_cost
+			
+			FROM vtiger_service
             LEFT JOIN vtiger_currency_info ON vtiger_service.currency_id = vtiger_currency_info.id
             LEFT JOIN vtiger_productcurrencyrel ON vtiger_service.serviceid = vtiger_productcurrencyrel.productid
-			AND vtiger_productcurrencyrel.currencyid = ". $current_user->currency_id . ")
+            LEFT JOIN vtiger_productcostrel ON vtiger_service.serviceid = vtiger_productcostrel.productid
+			AND vtiger_productcurrencyrel.currencyid = ". $current_user->currency_id . ") 
+			AND vtiger_productcostrel.currencyid = ". $current_user->currency_id . ")
             AS innerService ON innerService.serviceid = vtiger_service.serviceid";
 		}
 		if ($queryPlanner->requireTable("vtiger_crmentityServices",$matrix)){
@@ -1171,7 +1261,7 @@ class Services extends CRMEntity {
 
 		$query = "SELECT vtiger_service.serviceid, vtiger_service.servicename,
 			vtiger_service.service_no, vtiger_service.commissionrate,
-			vtiger_service.service_usageunit, vtiger_service.unit_price,
+			vtiger_service.service_usageunit, vtiger_service.unit_price,vtiger_service.cost,
 			vtiger_crmentity.crmid, vtiger_crmentity.smownerid
 			FROM vtiger_service
 			INNER JOIN vtiger_crmentity ON vtiger_crmentity.crmid = vtiger_service.serviceid

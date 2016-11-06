@@ -21,7 +21,7 @@ class Products_MassEditRecordStructure_Model extends Vtiger_MassEditRecordStruct
 	 */
 	public function isFieldRestricted($fieldModel) {
 		$restricted = parent::isFieldRestricted($fieldModel);
-		if($restricted && ($fieldModel->getFieldDataType() == 'productTax' || $fieldModel->getName() == 'unit_price')){
+		if($restricted && ($fieldModel->getFieldDataType() == 'productTax' || $fieldModel->getName() == 'unit_price')|| $fieldModel->getName() == 'cost'){
 			return false;
 		} else {
 			return $restricted;

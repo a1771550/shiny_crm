@@ -49,6 +49,10 @@ class Products_PriceBookProductPopup_View extends Vtiger_Popup_View {
 	/*
 	 * Function to initialize the required data in smarty to display the List View Contents
 	 */
+	/**
+	 * @param Vtiger_Request $request
+	 * @param Vtiger_Viewer $viewer
+	 */
 	public function initializeListViewContents(Vtiger_Request $request, Vtiger_Viewer $viewer) {
 		$moduleName = $request->getModule();
 		$cvId = $request->get('cvid');
@@ -104,9 +108,11 @@ class Products_PriceBookProductPopup_View extends Vtiger_Popup_View {
 				$productIdsList[$recordId] = $recordId;
 			}
 			$unitPricesList = $moduleModel->getPricesForProducts($currencyId, $productIdsList);
-			
+			$costList = $moduleModel->getCostsForProducts($currencyId, $productIdsList);
+
 			foreach ($this->listViewEntries as $recordId => $recordModel) {
 				$recordModel->set('unit_price', $unitPricesList[$recordId]);
+				$recordModel->set('cost',$costList[$recordId]);
 			}
 		}
 

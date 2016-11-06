@@ -107,6 +107,8 @@ function getAssociatedProducts($module,$focus,$seid='')
  		            case when vtiger_products.productid != '' then vtiger_products.product_no else vtiger_service.service_no end as productcode,
 					case when vtiger_products.productid != '' then vtiger_products.unit_price else vtiger_service.unit_price end as unit_price,
  		            case when vtiger_products.productid != '' then vtiger_products.qtyinstock else 'NA' end as qtyinstock,
+ 		            case when vtiger_products.productid != '' then vtiger_products.cost else vtiger_service.cost 
+ 		            end as cost,
  		            case when vtiger_products.productid != '' then 'Products' else 'Services' end as entitytype,
  		                        vtiger_inventoryproductrel.listprice,
  		                        vtiger_inventoryproductrel.description AS product_description,
@@ -128,6 +130,7 @@ function getAssociatedProducts($module,$focus,$seid='')
  		                        vtiger_products.productcode,
  		                        vtiger_products.unit_price,
  		                        vtiger_products.qtyinstock,
+ 		                        vtiger_products.cost,
  		                        vtiger_seproductsrel.*,vtiger_crmentity.deleted,
  		                        vtiger_crmentity.description AS product_description
  		                        FROM vtiger_products
@@ -145,6 +148,7 @@ function getAssociatedProducts($module,$focus,$seid='')
  		                        vtiger_products.productcode,
  		                        vtiger_products.productname,
  		                        vtiger_products.unit_price,
+ 		                        vtiger_products.cost,
  		                        vtiger_products.qtyinstock,vtiger_crmentity.deleted,
  		                        vtiger_crmentity.description AS product_description,
  		                        'Products' AS entitytype
@@ -162,6 +166,7 @@ function getAssociatedProducts($module,$focus,$seid='')
  		                        'NA' AS productcode,
  		                        vtiger_service.servicename AS productname,
  		                        vtiger_service.unit_price AS unit_price,
+ 		                        vtiger_products.cost As cost,
  		                        'NA' AS qtyinstock,vtiger_crmentity.deleted,
  		                        vtiger_crmentity.description AS product_description,
  		                       	'Services' AS entitytype
@@ -188,6 +193,7 @@ function getAssociatedProducts($module,$focus,$seid='')
 		$unitprice=$adb->query_result($result,$i-1,'unit_price');
 		$listprice=$adb->query_result($result,$i-1,'listprice');
 		$entitytype=$adb->query_result($result,$i-1,'entitytype');
+		$cost=$adb->query_result($result,$i-1,'cost');
 
 		if(($deleted) || (!isset($deleted))){
 			$product_Detail[$i]['productDeleted'.$i] = true;
@@ -206,6 +212,8 @@ function getAssociatedProducts($module,$focus,$seid='')
 
 		//calculate productTotal
 		$productTotal = $qty*$listprice;
+
+		$costTotal = $qty*$cost;
 
 		//Delete link in First column
 		if($i != 1)
@@ -256,7 +264,9 @@ function getAssociatedProducts($module,$focus,$seid='')
 		$product_Detail[$i]['qty'.$i]=decimalFormat($qty);
 		$product_Detail[$i]['listPrice'.$i]=$listprice;
 		$product_Detail[$i]['unitPrice'.$i]=number_format($unitprice, $no_of_decimal_places,'.','');
+		$product_Detail[$i]['cost'.$i]=number_format($cost, $no_of_decimal_places,'.','');
 		$product_Detail[$i]['productTotal'.$i]=$productTotal;
+		$product_Detail[$i]['costTotal'.$i]=$costTotal;
 		$product_Detail[$i]['subproduct_ids'.$i]=$subprodid_str;
 		$product_Detail[$i]['subprod_names'.$i]=$subprodname_str;
 		$discount_percent = decimalFormat($adb->query_result($result,$i-1,'discount_percent'));

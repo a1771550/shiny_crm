@@ -33,6 +33,7 @@
   `taxclass` varchar(200) default NULL,
   `currency_id` int(19) NOT NULL default '1',
   `commissionrate` decimal(7,3) default NULL,
+  `cost` decimal(25,2) default NULL,
   PRIMARY KEY  (`serviceid`),
   CONSTRAINT `fk_1_vtiger_service` FOREIGN KEY (`serviceid`) REFERENCES `vtiger_crmentity` (`crmid`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
@@ -391,6 +392,26 @@
 <helpinfo><![CDATA[]]></helpinfo>
 <masseditable>0</masseditable>
 </field>
+    <field>
+        <fieldname>cost</fieldname>
+        <uitype>72</uitype>
+        <columnname>cost</columnname>
+        <tablename>vtiger_service</tablename>
+        <generatedtype>1</generatedtype>
+        <fieldlabel>Cost</fieldlabel>
+        <readonly>1</readonly>
+        <presence>2</presence>
+        <defaultvalue></defaultvalue>
+        <sequence>1</sequence>
+        <maximumlength>100</maximumlength>
+        <typeofdata>N~O</typeofdata>
+        <quickcreate>2</quickcreate>
+        <quickcreatesequence>2</quickcreatesequence>
+        <displaytype>1</displaytype>
+        <info_type>BAS</info_type>
+        <helpinfo><![CDATA[]]></helpinfo>
+        <masseditable>0</masseditable>
+    </field>
 <field>
 <fieldname>taxclass</fieldname>
 <uitype>83</uitype>
@@ -433,6 +454,7 @@
 </field>
 </fields>
 </block>
+
 <block>
 <label>LBL_CUSTOM_INFORMATION</label>
 </block>

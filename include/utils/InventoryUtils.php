@@ -880,6 +880,7 @@ function getPriceDetailsForProduct($productid, $unit_price, $available='availabl
 {
 	global $log, $adb;
 	$log->debug("Entering into function getPriceDetailsForProduct($productid)");
+	$price_details=null;
 	if($productid != '')
 	{
 		$product_currency_id = getProductBaseCurrency($productid, $itemtype);
@@ -988,6 +989,127 @@ function getPriceDetailsForProduct($productid, $unit_price, $available='availabl
 	return $price_details;
 }
 
+/**	Function used to get all the cost details for different currencies which are associated to the given product
+ *	@param int $productid - product id to which we want to get all the associated costs
+ *  @param decimal $cost - Cost of the product
+ *  @param string $available - available or available_associated where as default is available, if available then the costs in the currencies which are available now will be returned, otherwise if the value is available_associated then costs of all the associated currencies will be returned
+ *	@return array $cost_details - price details as a array with productid, curid, curname
+ */
+function getCostDetailsForProduct($productid, $cost, $available='available', $itemtype='Products')
+{
+	global $log, $adb;
+	$log->debug("Entering into function getCostDetailsForProduct($productid)");
+	$cost_details=null;
+	if($productid != '')
+	{
+		$product_currency_id = getProductBaseCurrency($productid, $itemtype);
+		$product_base_conv_rate = getBaseConversionRateForProduct($productid,'edit',$itemtype);
+		// Detail View
+		if ($available == 'available_associated') {
+			$query = "select vtiger_currency_info.*, vtiger_productcostrel.converted_cost, vtiger_productcostrel
+			.actual_cost
+					from vtiger_currency_info
+					inner join vtiger_productcostrel on vtiger_currency_info.id = vtiger_productcostrel.currencyid
+					where vtiger_currency_info.currency_status = 'Active' and vtiger_currency_info.deleted=0
+					and vtiger_productcostrel.productid = ? and vtiger_currency_info.id != ?";
+			$params = array($productid, $product_currency_id);
+		} else { // Edit View
+			$query = "select vtiger_currency_info.*, vtiger_productcostrel.converted_cost, vtiger_productcostrel
+			.actual_cost
+					from vtiger_currency_info
+					left join vtiger_productcostrel
+					on vtiger_currency_info.id = vtiger_productcostrel.currencyid and vtiger_productcostrel.productid = ?
+					where vtiger_currency_info.currency_status = 'Active' and vtiger_currency_info.deleted=0";
+			$params = array($productid);
+		}
+
+		//Postgres 8 fixes
+		if( $adb->dbType == "pgsql")
+			$query = fixPostgresQuery( $query, $log, 0);
+
+		$res = $adb->pquery($query, $params);
+		for($i=0;$i<$adb->num_rows($res);$i++)
+		{
+			$cost_details[$i]['productid'] = $productid;
+			$cost_details[$i]['currencylabel'] = $adb->query_result($res,$i,'currency_name');
+			$cost_details[$i]['currencycode'] = $adb->query_result($res,$i,'currency_code');
+			$cost_details[$i]['currencysymbol'] = $adb->query_result($res,$i,'currency_symbol');
+			$currency_id = $adb->query_result($res,$i,'id');
+			$cost_details[$i]['curid'] = $currency_id;
+			$cost_details[$i]['curname'] = 'curname' . $adb->query_result($res,$i,'id');
+			$cur_value = $adb->query_result($res,$i,'actual_price');
+
+			// Get the conversion rate for the given currency, get the conversion rate of the product currency to base currency.
+			// Both together will be the actual conversion rate for the given currency.
+			$conversion_rate = $adb->query_result($res,$i,'conversion_rate');
+			$actual_conversion_rate = $product_base_conv_rate * $conversion_rate;
+
+			$is_basecurrency = false;
+			if ($currency_id == $product_currency_id) {
+				$is_basecurrency = true;
+			}
+			if ($cur_value == null || $cur_value == '') {
+				$cost_details[$i]['check_value'] = false;
+				if	($cost != null) {
+					$cur_value = CurrencyField::convertFromMasterCurrency($cost, $actual_conversion_rate);
+				} else {
+					$cur_value = '0';
+				}
+			} else if($is_basecurrency){
+				$cost_details[$i]['check_value'] = true;
+			}
+			$cost_details[$i]['curvalue'] = CurrencyField::convertToUserFormat($cur_value, null, true);
+			$cost_details[$i]['conversionrate'] = $actual_conversion_rate;
+			$cost_details[$i]['is_basecurrency'] = $is_basecurrency;
+		}
+	}
+	else
+	{
+		if($available == 'available') { // Create View
+			global $current_user;
+
+			$user_currency_id = fetchCurrency($current_user->id);
+
+			$query = "select vtiger_currency_info.* from vtiger_currency_info
+					where vtiger_currency_info.currency_status = 'Active' and vtiger_currency_info.deleted=0";
+			$params = array();
+
+			$res = $adb->pquery($query, $params);
+			for($i=0;$i<$adb->num_rows($res);$i++)
+			{
+				$cost_details[$i]['currencylabel'] = $adb->query_result($res,$i,'currency_name');
+				$cost_details[$i]['currencycode'] = $adb->query_result($res,$i,'currency_code');
+				$cost_details[$i]['currencysymbol'] = $adb->query_result($res,$i,'currency_symbol');
+				$currency_id = $adb->query_result($res,$i,'id');
+				$cost_details[$i]['curid'] = $currency_id;
+				$cost_details[$i]['curname'] = 'curname' . $adb->query_result($res,$i,'id');
+
+				// Get the conversion rate for the given currency, get the conversion rate of the product currency(logged in user's currency) to base currency.
+				// Both together will be the actual conversion rate for the given currency.
+				$conversion_rate = $adb->query_result($res,$i,'conversion_rate');
+				$user_cursym_convrate = getCurrencySymbolandCRate($user_currency_id);
+				$product_base_conv_rate = 1 / $user_cursym_convrate['rate'];
+				$actual_conversion_rate = $product_base_conv_rate * $conversion_rate;
+
+				$cost_details[$i]['check_value'] = false;
+				$cost_details[$i]['curvalue'] = '0';
+				$cost_details[$i]['conversionrate'] = $actual_conversion_rate;
+
+				$is_basecurrency = false;
+				if ($currency_id == $user_currency_id) {
+					$is_basecurrency = true;
+				}
+				$cost_details[$i]['is_basecurrency'] = $is_basecurrency;
+			}
+		} else {
+			$log->debug("Product id is empty. we cannot retrieve the associated costs.");
+		}
+	}
+
+	$log->debug("Exit from function getCostDetailsForProduct($productid)");
+	return $cost_details;
+}
+
 /**	Function used to get the base currency used for the given Product
  *	@param int $productid - product id for which we want to get the id of the base currency
  *  @return int $currencyid - id of the base currency for the given product
@@ -1045,7 +1167,7 @@ function getPricesForProducts($currencyid, $product_ids, $module='Products') {
 	if (count($product_ids) > 0) {
 		if ($module == 'Services') {
 			$query = "SELECT vtiger_currency_info.id, vtiger_currency_info.conversion_rate, " .
-					"vtiger_service.serviceid AS productid, vtiger_service.unit_price, " .
+					"vtiger_service.serviceid AS productid, vtiger_service.unit_price" .
 					"vtiger_productcurrencyrel.actual_price " .
 					"FROM (vtiger_currency_info, vtiger_service) " .
 					"left join vtiger_productcurrencyrel on vtiger_service.serviceid = vtiger_productcurrencyrel.productid " .
@@ -1084,6 +1206,59 @@ function getPricesForProducts($currencyid, $product_ids, $module='Products') {
 		}
 	}
 	return $price_list;
+}
+
+/**	Function used to get the costs for the given list of products based in the specified currency
+ *	@param int $currencyid - currency id based on which the costs have to be provided
+ *	@param array $product_ids - List of product id's for which we want to get the cost based on given currency
+ *  @return array $costs_list - List of costs for the given list of products based on the given currency in the form of 'product id' mapped to 'cost value'
+ */
+function getCostsForProducts($currencyid, $product_ids, $module='Products') {
+	global $adb,$log,$current_user;
+
+	$cost_list = array();
+	if (count($product_ids) > 0) {
+		if ($module == 'Services') {
+			$query = "SELECT vtiger_currency_info.id, vtiger_currency_info.conversion_rate, " .
+				"vtiger_service.serviceid AS productid, vtiger_service.cost" .
+				"vtiger_productcostrel.actual_cost " .
+				"FROM (vtiger_currency_info, vtiger_service) " .
+				"left join vtiger_productcostrel on vtiger_service.serviceid = vtiger_productcostrel.productid " .
+				"and vtiger_currency_info.id = vtiger_productcostrel.currencyid " .
+				"where vtiger_service.serviceid in (". generateQuestionMarks($product_ids) .") and vtiger_currency_info.id = ?";
+		} else {
+			$query = "SELECT vtiger_currency_info.id, vtiger_currency_info.conversion_rate, " .
+				"vtiger_products.productid, vtiger_products.cost, " .
+				"vtiger_productcostrel.actual_cost " .
+				"FROM (vtiger_currency_info, vtiger_products) " .
+				"left join vtiger_productcostrel on vtiger_products.productid = vtiger_productcostrel.productid " .
+				"and vtiger_currency_info.id = vtiger_productcostrel.currencyid " .
+				"where vtiger_products.productid in (". generateQuestionMarks($product_ids) .") and vtiger_currency_info.id = ?";
+		}
+		$params = array($product_ids, $currencyid);
+		$result = $adb->pquery($query, $params);
+
+		for($i=0;$i<$adb->num_rows($result);$i++)
+		{
+			$product_id = $adb->query_result($result, $i, 'productid');
+			if(getFieldVisibilityPermission($module,$current_user->id,'cost') == '0') {
+				$actual_cost = (float)$adb->query_result($result, $i, 'actual_cost');
+
+				if ($actual_cost == null || $actual_cost == '') {
+					$cost = $adb->query_result($result, $i, 'cost');
+					$product_conv_rate = $adb->query_result($result, $i, 'conversion_rate');
+					$product_base_conv_rate = getBaseConversionRateForProduct($product_id,'edit',$module);
+					$conversion_rate = $product_conv_rate * $product_base_conv_rate;
+
+					$actual_cost = $cost * $conversion_rate;
+				}
+				$cost_list[$product_id] = $actual_cost;
+			} else {
+				$cost_list[$product_id] = '';
+			}
+		}
+	}
+	return $cost_list;
 }
 
 /**	Function used to get the currency used for the given Price book

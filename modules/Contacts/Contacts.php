@@ -676,6 +676,7 @@ class Contacts extends CRMEntity {
 
 		$query = 'SELECT vtiger_products.productid, vtiger_products.productname, vtiger_products.productcode,
 		 		  vtiger_products.commissionrate, vtiger_products.qty_per_unit, vtiger_products.unit_price,
+		 		  vtiger_products.cost,
 				  vtiger_crmentity.crmid, vtiger_crmentity.smownerid,vtiger_contactdetails.lastname
 				FROM vtiger_products
 				INNER JOIN vtiger_seproductsrel

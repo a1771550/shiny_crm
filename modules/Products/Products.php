@@ -31,14 +31,16 @@ class Products extends CRMEntity {
 		'Part Number'=>Array('products'=>'productcode'),
 		'Commission Rate'=>Array('products'=>'commissionrate'),
 		'Qty/Unit'=>Array('products'=>'qty_per_unit'),
-		'Unit Price'=>Array('products'=>'unit_price')
+		'Unit Price'=>Array('products'=>'unit_price'),
+		'Cost'=>Array('products'=>'cost')
 	);
 	var $list_fields_name = Array(
 		'Product Name'=>'productname',
 		'Part Number'=>'productcode',
 		'Commission Rate'=>'commissionrate',
 		'Qty/Unit'=>'qty_per_unit',
-		'Unit Price'=>'unit_price'
+		'Unit Price'=>'unit_price',
+		'Cost'=>'cost'
 	);
 
 	var $list_link_field= 'productname';
@@ -46,12 +48,14 @@ class Products extends CRMEntity {
 	var $search_fields = Array(
 		'Product Name'=>Array('products'=>'productname'),
 		'Part Number'=>Array('products'=>'productcode'),
-		'Unit Price'=>Array('products'=>'unit_price')
+		'Unit Price'=>Array('products'=>'unit_price'),
+		'Cost'=>Array('products'=>'cost')
 	);
 	var $search_fields_name = Array(
 		'Product Name'=>'productname',
 		'Part Number'=>'productcode',
-		'Unit Price'=>'unit_price'
+		'Unit Price'=>'unit_price',
+		'Cost'=>'cost'
 	);
 
     var $required_fields = Array(
@@ -71,6 +75,7 @@ class Products extends CRMEntity {
 	var $mandatory_fields = Array('createdtime', 'modifiedtime', 'productname', 'assigned_user_id');
 	 // Josh added for importing and exporting -added in patch2
     var $unit_price;
+	var $cost;
 
 	/**	Constructor which will set the column_fields in this object
 	 */
@@ -89,10 +94,12 @@ class Products extends CRMEntity {
 		{
 			$this->insertTaxInformation('vtiger_producttaxrel', 'Products');
 			$this->insertPriceInformation('vtiger_productcurrencyrel', 'Products');
+			$this->insertCostInformation('vtiger_productcostrel', 'Products');
 		}
 
 		// Update unit price value in vtiger_productcurrencyrel
 		$this->updateUnitPrice();
+		$this->updateCost();
 		//Inserting into attachments
 		$this->insertIntoAttachment($this->id,'Products');
 
@@ -207,6 +214,67 @@ class Products extends CRMEntity {
 		$log->debug("Exiting from insertPriceInformation($tablename, $module) method ...");
 	}
 
+	/** function to save the product cost information in vtiger_productcostrel table
+	 * @param $tablename - vtiger_tablename to save the product cost relationship (productcostrel)
+	 * @param $module
+	 */
+	function insertCostInformation($tablename, $module)
+	{
+		global $adb, $log, $current_user;
+		$log->debug("Entering into insertCostInformation($tablename, $module) method ...");
+		//removed the update of currency_id based on the logged in user's preference : fix 6490
+
+		$currency_details = getAllCurrencies('all');
+
+		//Delete the existing currency relationship if any
+		if($this->mode == 'edit' && $_REQUEST['action'] !== 'MassEditSave')
+		{
+			for($i=0;$i<count($currency_details);$i++)
+			{
+				$curid = $currency_details[$i]['curid'];
+				$sql = "delete from vtiger_productcostrel where productid=? and currencyid=?";
+				$adb->pquery($sql, array($this->id,$curid));
+			}
+		}
+
+		$product_base_conv_rate = getBaseConversionRateForProduct($this->id, $this->mode);
+		$currencySet = 0;
+		//Save the Product - Currency relationship if corresponding currency check box is enabled
+		for($i=0;$i<count($currency_details);$i++)
+		{
+			$curid = $currency_details[$i]['curid'];
+			$curname = $currency_details[$i]['currencylabel'];
+			$cur_checkname = 'cur_' . $curid . '_check';
+			$cur_valuename = 'curname' . $curid;
+
+			$requestCost = CurrencyField::convertToDBFormat($_REQUEST['cost'], null, true);
+			$actualCost = CurrencyField::convertToDBFormat($_REQUEST[$cur_valuename], null, true);
+			if($_REQUEST[$cur_checkname] == 'on' || $_REQUEST[$cur_checkname] == 1)
+			{
+				$conversion_rate = $currency_details[$i]['conversionrate'];
+				$actual_conversion_rate = $product_base_conv_rate * $conversion_rate;
+				$converted_cost = $actual_conversion_rate * $requestCost;
+
+				$log->debug("Going to save the Product - $curname cost relationship");
+
+				$query = "insert into vtiger_productcostrel values(?,?,?,?)";
+				$adb->pquery($query, array($this->id,$curid,$converted_cost,$actualCost));
+
+				// Update the Product information with Base Currency choosen by the User.
+				if ($_REQUEST['base_currency'] == $cur_valuename) {
+					$currencySet = 1;
+					$adb->pquery("update vtiger_products set currency_id=?, cost=? where productid=?", array($curid, $actualCost, $this->id));
+				}
+			}
+			if(!$currencySet){
+				$curid = fetchCurrency($current_user->id);
+				$adb->pquery("update vtiger_products set currency_id=? where productid=?", array($curid, $this->id));
+			}
+		}
+
+		$log->debug("Exiting from insertCostInformation($tablename, $module) method ...");
+	}
+
 	function updateUnitPrice() {
 		$prod_res = $this->db->pquery("select unit_price, currency_id from vtiger_products where productid=?", array($this->id));
 		$prod_unit_price = $this->db->query_result($prod_res, 0, 'unit_price');
@@ -214,6 +282,16 @@ class Products extends CRMEntity {
 
 		$query = "update vtiger_productcurrencyrel set actual_price=? where productid=? and currencyid=?";
 		$params = array($prod_unit_price, $this->id, $prod_base_currency);
+		$this->db->pquery($query, $params);
+	}
+
+	function updateCost() {
+		$prod_res = $this->db->pquery("select cost, currency_id from vtiger_products where productid=?", array($this->id));
+		$prod_cost = $this->db->query_result($prod_res, 0, 'cost');
+		$prod_base_currency = $this->db->query_result($prod_res, 0, 'currency_id');
+
+		$query = "update vtiger_productcostrel set actual_price=? where productid=? and currencyid=?";
+		$params = array($prod_cost, $this->id, $prod_base_currency);
 		$this->db->pquery($query, $params);
 	}
 
@@ -307,7 +385,12 @@ class Products extends CRMEntity {
 			}
 		}
 
-		$query = "SELECT vtiger_leaddetails.leadid, vtiger_crmentity.crmid, vtiger_leaddetails.firstname, vtiger_leaddetails.lastname, vtiger_leaddetails.company, vtiger_leadaddress.phone, vtiger_leadsubdetails.website, vtiger_leaddetails.email, case when (vtiger_users.user_name not like \"\") then vtiger_users.user_name else vtiger_groups.groupname end as user_name, vtiger_crmentity.smownerid, vtiger_products.productname, vtiger_products.qty_per_unit, vtiger_products.unit_price, vtiger_products.expiry_date
+		$query = "SELECT vtiger_leaddetails.leadid, vtiger_crmentity.crmid, vtiger_leaddetails.firstname, vtiger_leaddetails.lastname, 
+vtiger_leaddetails.company, vtiger_leadaddress.phone, vtiger_leadsubdetails.website, vtiger_leaddetails.email, case 
+when (vtiger_users.user_name not like \"\") then vtiger_users.user_name else vtiger_groups.groupname end as 
+user_name, vtiger_crmentity.smownerid, vtiger_products.productname, vtiger_products.qty_per_unit, vtiger_products
+.unit_price, vtiger_products.cost,  
+vtiger_products.expiry_date
 			FROM vtiger_leaddetails
 			INNER JOIN vtiger_crmentity ON vtiger_crmentity.crmid = vtiger_leaddetails.leadid
 			INNER JOIN vtiger_leadaddress ON vtiger_leadaddress.leadaddressid = vtiger_leaddetails.leadid
@@ -364,7 +447,7 @@ class Products extends CRMEntity {
 			}
 		}
 
-		$query = "SELECT vtiger_account.accountid, vtiger_crmentity.crmid, vtiger_account.accountname, vtiger_accountbillads.bill_city, vtiger_account.website, vtiger_account.phone, case when (vtiger_users.user_name not like \"\") then vtiger_users.user_name else vtiger_groups.groupname end as user_name, vtiger_crmentity.smownerid, vtiger_products.productname, vtiger_products.qty_per_unit, vtiger_products.unit_price, vtiger_products.expiry_date
+		$query = "SELECT vtiger_account.accountid, vtiger_crmentity.crmid, vtiger_account.accountname, vtiger_accountbillads.bill_city, vtiger_account.website, vtiger_account.phone, case when (vtiger_users.user_name not like \"\") then vtiger_users.user_name else vtiger_groups.groupname end as user_name, vtiger_crmentity.smownerid, vtiger_products.productname, vtiger_products.qty_per_unit, vtiger_products.unit_price, vtiger_products.expiry_date, vtiger_products.cost
 			FROM vtiger_account
 			INNER JOIN vtiger_crmentity ON vtiger_crmentity.crmid = vtiger_account.accountid
 			INNER JOIN vtiger_accountbillads ON vtiger_accountbillads.accountaddressid = vtiger_account.accountid
@@ -421,7 +504,7 @@ class Products extends CRMEntity {
 			}
 		}
 
-		$query = "SELECT vtiger_contactdetails.firstname, vtiger_contactdetails.lastname, vtiger_contactdetails.title, vtiger_contactdetails.accountid, vtiger_contactdetails.email, vtiger_contactdetails.phone, vtiger_crmentity.crmid, case when (vtiger_users.user_name not like \"\") then vtiger_users.user_name else vtiger_groups.groupname end as user_name, vtiger_crmentity.smownerid, vtiger_products.productname, vtiger_products.qty_per_unit, vtiger_products.unit_price, vtiger_products.expiry_date,vtiger_account.accountname
+		$query = "SELECT vtiger_contactdetails.firstname, vtiger_contactdetails.lastname, vtiger_contactdetails.title, vtiger_contactdetails.accountid, vtiger_contactdetails.email, vtiger_contactdetails.phone, vtiger_crmentity.crmid, case when (vtiger_users.user_name not like \"\") then vtiger_users.user_name else vtiger_groups.groupname end as user_name, vtiger_crmentity.smownerid, vtiger_products.productname, vtiger_products.qty_per_unit, vtiger_products.unit_price, vtiger_products.cost, vtiger_products.expiry_date,vtiger_account.accountname
 			FROM vtiger_contactdetails
 			INNER JOIN vtiger_crmentity ON vtiger_crmentity.crmid = vtiger_contactdetails.contactid
 			INNER JOIN vtiger_seproductsrel ON vtiger_seproductsrel.crmid=vtiger_contactdetails.contactid
@@ -488,7 +571,7 @@ class Products extends CRMEntity {
 			vtiger_potential.sales_stage, vtiger_potential.amount, vtiger_potential.closingdate,
 			case when (vtiger_users.user_name not like '') then $userNameSql else
 			vtiger_groups.groupname end as user_name, vtiger_crmentity.smownerid,
-			vtiger_products.productname, vtiger_products.qty_per_unit, vtiger_products.unit_price,
+			vtiger_products.productname, vtiger_products.qty_per_unit, vtiger_products.unit_price, vtiger_products.cost,
 			vtiger_products.expiry_date FROM vtiger_potential
 			INNER JOIN vtiger_crmentity ON vtiger_crmentity.crmid = vtiger_potential.potentialid
 			INNER JOIN vtiger_seproductsrel ON vtiger_seproductsrel.crmid = vtiger_potential.potentialid
@@ -1005,10 +1088,11 @@ class Products extends CRMEntity {
 	}
 
 	/**
-	* Function to get Product's related Products
-	* @param  integer   $id      - productid
-	* returns related Products record in array format
-	*/
+	 * Function to get Product's related Products
+	 * @param  integer $id - productid
+	 * returns related Products record in array format
+	 * @return array
+	 */
 	function get_products($id, $cur_tab_id, $rel_tab_id, $actions=false) {
 		global $log, $singlepane_view,$currentModule,$current_user;
 		$log->debug("Entering get_products(".$id.") method ...");
@@ -1044,7 +1128,7 @@ class Products extends CRMEntity {
 
 		$query = "SELECT vtiger_products.productid, vtiger_products.productname,
 			vtiger_products.productcode, vtiger_products.commissionrate,
-			vtiger_products.qty_per_unit, vtiger_products.unit_price,
+			vtiger_products.qty_per_unit, vtiger_products.unit_price, vtiger_products.cost,
 			vtiger_crmentity.crmid, vtiger_crmentity.smownerid
 			FROM vtiger_products
 			INNER JOIN vtiger_crmentity ON vtiger_crmentity.crmid = vtiger_products.productid
@@ -1093,7 +1177,7 @@ class Products extends CRMEntity {
 
 		$query = "SELECT vtiger_products.productid, vtiger_products.productname,
 			vtiger_products.productcode, vtiger_products.commissionrate,
-			vtiger_products.qty_per_unit, vtiger_products.unit_price,
+			vtiger_products.qty_per_unit, vtiger_products.unit_price,vtiger_products.cost,
 			vtiger_crmentity.crmid, vtiger_crmentity.smownerid
 			FROM vtiger_products
 			INNER JOIN vtiger_crmentity ON vtiger_crmentity.crmid = vtiger_products.productid
@@ -1226,11 +1310,16 @@ class Products extends CRMEntity {
 				    SELECT vtiger_products.productid,
 						    (CASE WHEN (vtiger_products.currency_id = 1 ) THEN vtiger_products.unit_price
 							    ELSE (vtiger_products.unit_price / vtiger_currency_info.conversion_rate) END
-						    ) AS actual_unit_price
+						    ) AS actual_unit_price,
+						    (CASE WHEN (vtiger_products.currency_id = 1 ) THEN vtiger_products.cost
+							    ELSE (vtiger_products.cost / vtiger_currency_info.conversion_rate) END
+						    ) AS actual_cost
 				    FROM vtiger_products
 				    LEFT JOIN vtiger_currency_info ON vtiger_products.currency_id = vtiger_currency_info.id
 				    LEFT JOIN vtiger_productcurrencyrel ON vtiger_products.productid = vtiger_productcurrencyrel.productid
-				    AND vtiger_productcurrencyrel.currencyid = ". $current_user->currency_id . "
+				    LEFT JOIN vtiger_productcostrel ON vtiger_products.productid = vtiger_productcostrel
+						.productid
+				    AND vtiger_productcurrencyrel.currencyid = ". $current_user->currency_id . " AND vtiger_productcostrel.currencyid = ". $current_user->currency_id . "
 			    ) AS innerProduct ON innerProduct.productid = vtiger_products.productid";
 		}
 		if ($queryplanner->requireTable("vtiger_crmentityProducts")){
